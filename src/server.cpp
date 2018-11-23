@@ -968,7 +968,7 @@ void *reconnect_thread(void *arg)
 				}    
 				catch(std::exception &e)  
 				{    
-						LOG(ERROR)<<"client_reconnect_thread:catch an exception!-->"<<e.what();
+						LOG(WARNING)<<"client_reconnect_thread:catch an exception!-->"<<e.what();
 						continue;
 				}    
 				register_status = true;
@@ -981,8 +981,16 @@ void *reconnect_thread(void *arg)
 
 void reconnect_manager_server()
 {
+		LOG(WARNING)<<"connect erorr and reconnect manager server start!!!";
+
 		register_status = false;
-		transport_client->close();
+
+		if(transport_client->isOpen())
+		{
+				transport_client->close();
+				LOG(WARNING)<<"close transport";
+		}
+
 		while(1) 
 		{    
 				sleep(2);
@@ -993,12 +1001,13 @@ void reconnect_manager_server()
 				}    
 				catch(std::exception &e)  
 				{    
-						LOG(ERROR)<<"reconnect_manager_server:catch an exception!-->"<<e.what();
+						LOG(WARNING)<<"reconnect_manager_server:catch an exception!-->"<<e.what();
 						continue;
 				}    
 				register_status = true;
 				break;
 		}
+
 		LOG(WARNING)<<"reconnect manager server success!!!";
 
 		#if 0

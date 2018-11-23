@@ -180,7 +180,7 @@ void update_dial_status(enum dial_type type)
 		}
 		catch(std::exception &e) 
 		{
-				LOG(ERROR)<<"update dial result:catch an exception!--->"<<e.what();
+				LOG(WARNING)<<"update dial result:catch an exception!--->"<<e.what();
 				reconnect_manager_server();
 		}
 
@@ -264,7 +264,7 @@ void *update_dial_result_thread(void*arg)
 																				auth_status.delay = 0;
 																				auth_result.statusList.push_back(auth_status);
 																		}
-																		//LOG(INFO)<<"auth_result:rid="<<auth_status.rid<<",ip="<<auth_iter->ip.addr<<",policy="<<*policy_iter<<",status="<<auth_status.status;
+																		LOG(INFO)<<"auth_result:rid="<<auth_status.rid<<",ip="<<auth_iter->ip.addr<<",policy="<<*policy_iter<<",status="<<auth_status.status;
 																}
 														}
 														pthread_mutex_unlock(&ip_map[auth_iter->ip.addr].mutex);
