@@ -145,6 +145,7 @@ int do_send(ev_t*ev)
 						return 0;
 				}
 				case DIAL_DATABASE:
+				case DIAL_ORACLE:
 				case DIAL_FTP:
 				{
 						if(epoll_ctl(g_epoll_common_fd,EPOLL_CTL_DEL,ev->fd,NULL) < 0)

@@ -328,6 +328,10 @@ string get_url_addr(const char* url)
 		char* p_s = (char*)strstr(url,"://");
 		p_s += 3;
 		char* p_e = strchr(p_s,':');
+		if(!p_e)
+		{				
+				p_e = strchr(p_s,'/');
+		}
 		strncpy(addr,p_s,p_e-p_s);
 		string ip(addr);
 		return ip;

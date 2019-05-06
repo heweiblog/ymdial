@@ -49,7 +49,7 @@ void do_dial_by_policy(string & policy,const char* ip)
 				}
 				case DIAL_DATABASE:
 				{
-						handle_mysql_task(ip,policy.c_str(),DIAL_DATABASE);
+						handle_db_task(ip,policy.c_str(),DIAL_DATABASE);
 						break;
 				}
 				case DIAL_EXTHTTPGET:
@@ -74,7 +74,7 @@ void do_dial_by_policy(string & policy,const char* ip)
 				}
 				case DIAL_UDPPORT:
 				{
-						handle_udp_port_task(ip,policy_map[policy].port,policy.c_str(),DIAL_TCPPORT);
+						handle_udp_port_task(ip,policy_map[policy].port,policy.c_str(),DIAL_UDPPORT);
 						break;
 				}
 				case DIAL_FTP:
@@ -96,7 +96,12 @@ void do_dial_by_policy(string & policy,const char* ip)
 				}
 				case DIAL_SNMP:
 				{
-						handle_snmp_task(ip,policy_map[policy].port,policy.c_str(),DIAL_TCPPORT);
+						handle_snmp_task(ip,policy_map[policy].port,policy.c_str(),DIAL_SNMP);
+						break;
+				}
+				case DIAL_ORACLE:
+				{
+						handle_db_task(ip,policy.c_str(),DIAL_ORACLE);
 						break;
 				}
 		}
@@ -483,7 +488,7 @@ int set_core_file()
 
 int set_file_limit()
 {
-		rlimit tmp = {262143,262144};
+		struct rlimit tmp = {262143,262144};
 		int rtn = setrlimit(RLIMIT_NOFILE,&tmp); 
 		if(rtn != 0)
 		{

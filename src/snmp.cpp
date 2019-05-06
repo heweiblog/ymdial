@@ -8,7 +8,7 @@
 #include "log.h"
 #include "work.h"
 
-#define CMD_SIZE 512
+#define CMD_SIZE 1024
 #define CMD_RES_SIZE 1024*1024
 #define SNMPVERSION_1    1
 #define SNMPVERSION_2    2
@@ -20,15 +20,15 @@ void get_cmd(const SnmpGroupInfo & snmp_node,char*snmp_cmd,int size,const char*o
 
 		if(SNMPVERSION_3 == snmp_node.version)
 		{
-				sprintf(snmp_cmd,"snmpwalk -v 3 -u %s -a MD5 -A \"%s\" -l authNoPriv %s %s",snmp_node.user.c_str(),snmp_node.passwd.c_str(),snmp_node.ip.addr.c_str(),oid);
+				sprintf(snmp_cmd,"snmpwalk -v 3 -u %s -a MD5 -A \"%s\" -l authNoPriv %s:%d %s",snmp_node.user.c_str(),snmp_node.passwd.c_str(),snmp_node.ip.addr.c_str(),snmp_node.port,oid);
 		}
 		else if(SNMPVERSION_2 == snmp_node.version)
 		{
-				sprintf(snmp_cmd,"snmpwalk -v 2c -c %s %s %s",snmp_node.community.c_str(),snmp_node.ip.addr.c_str(),oid);
+				sprintf(snmp_cmd,"snmpwalk -v 2c -c %s %s:%d %s",snmp_node.community.c_str(),snmp_node.ip.addr.c_str(),snmp_node.port,oid);
 		}
 		else if(SNMPVERSION_1 == snmp_node.version)
 		{
-				sprintf(snmp_cmd,"snmpwalk -v 1 -c %s %s %s",snmp_node.community.c_str(),snmp_node.ip.addr.c_str(),oid);
+				sprintf(snmp_cmd,"snmpwalk -v 1 -c %s %s:%d %s",snmp_node.community.c_str(),snmp_node.ip.addr.c_str(),snmp_node.port,oid);
 		}
 }
 
@@ -758,11 +758,15 @@ int get_mactable_outindex(snmp_node_t* snmp_node,vector<InterfaceInfo> & eth,vec
 								p_data += 1;
 
 								out_num = atoi(p_data);
-								//mac_table[i].out_index = out_num;
 
 								memset(oid,0,CMD_SIZE);
 								sprintf(oid,".1.3.6.1.2.1.17.1.4.1.2.%d",out_num);
 								phy_num = get_interface_num(snmp_node,oid);
+
+								if(i >= mac_table_size)
+								{
+										break;
+								}
 
 								mac_table[i].index = phy_num;
 
@@ -1446,6 +1450,11 @@ int handle_snmp_dialing(const char*ip,const char* user,const char* pass,
 
 void handle_snmp_task(const char*ip,const int port,const char*policy,enum policy_type type)
 {
+		if(snmp_queue.size() > 5000)
+		{
+				return;
+		}
+
 		ev_t * my_ev = (ev_t*)calloc(1,sizeof(ev_t));
 		if(!my_ev)
 		{

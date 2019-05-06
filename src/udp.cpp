@@ -40,6 +40,11 @@ int new_udp_block_fd()
 
 void handle_udp_port_task(const char*ip,const int port,const char*policy,enum policy_type type)
 {
+		if(udp_queue.size() > 10000)
+		{
+				return;
+		}
+
 		ev_t * my_ev = (ev_t*)calloc(1,sizeof(ev_t));
 		if(!my_ev)
 		{
@@ -51,11 +56,10 @@ void handle_udp_port_task(const char*ip,const int port,const char*policy,enum po
 		my_ev->port = port;
 		strcpy(my_ev->ip,ip);
 		strcpy(my_ev->policy,policy);
-
+		
 		pthread_mutex_lock(&udp_queue_lock);
 		udp_queue.push(my_ev);
 		pthread_mutex_unlock(&udp_queue_lock);
-
 }
 
 

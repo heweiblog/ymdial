@@ -1,4 +1,5 @@
 #include <arpa/inet.h>
+//#include <occi.h>
 #include "log.h"
 #include "tcp.h"
 #include "server.h"
@@ -9,6 +10,8 @@
 #define FTP_PORT 21
 #define TFP_USER "anonymous"
 #define TFP_PASS "anonymous"
+
+//using namespace oracle::occi;
 
 int get_db_param_from_url(const char *ip,const char *url,char *host,int *port,char *db_name,char *usr,char *pwd)
 {
@@ -119,7 +122,7 @@ int get_db_param_from_url(const char *ip,const char *url,char *host,int *port,ch
 }
 
 
-void handle_mysql_task(const char* ip,const char* policy,enum policy_type type)
+void handle_db_task(const char* ip,const char* policy,enum policy_type type)
 {
 		int fd = new_unblock_tcp_socket();
 		if(fd < 0)
@@ -217,6 +220,43 @@ int do_mysql_task(ev_t* ev)
 		return rtn;
 }
 
+int do_oracle_task(ev_t* ev)
+{
+}
+
+/*
+int do_oracle_task(ev_t* ev)
+{
+		int rtn = 0;
+		string name(ev->sql->user);
+		string pass(ev->sql->pwd);
+		char db_info[128] = {'\0'};
+		sprintf(db_info,"%s:%d/%s",ev->ip,ev->sql->port,ev->sql->db);
+		string srvName(db_info);
+		string method(ev->sql->method);
+
+		Environment *env=Environment::createEnvironment();
+
+		try
+		{
+				Connection *conn = env->createConnection(name, pass, srvName);
+				Statement *pStmt = conn->createStatement(method);
+				ResultSet *pRs = pStmt->executeQuery();
+				pStmt->closeResultSet(pRs);
+				conn->terminateStatement(pStmt);
+				env->terminateConnection(conn);
+		}
+		catch(SQLException e)
+		{
+				LOG(WARNING)<<srvName<<":do oracle task catch a error "<<e.what();
+				rtn = -1;
+		}
+
+		Environment::terminateEnvironment(env);
+		return rtn;
+}
+*/
+
 void handle_ftp_task(const char*ip,const int port,const char*policy,enum policy_type type)
 {
 		int fd = new_unblock_tcp_socket();
@@ -306,6 +346,10 @@ void* mysql_dial_thread(void*arg)
 						else if(ev->type == DIAL_FTP)
 						{
 								rtn = do_ftp_task(ev);
+						}
+						else if(ev->type == DIAL_ORACLE)
+						{
+								rtn = do_oracle_task(ev);
 						}
 
 						if(!rtn)

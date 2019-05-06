@@ -14,7 +14,7 @@ typedef struct login_node
 
 }login_t;
 
-void handle_mysql_task(const char* ip,const char* policy,enum policy_type type);
+void handle_db_task(const char* ip,const char* policy,enum policy_type type);
 void handle_ftp_task(const char*ip,const int port,const char*policy,enum policy_type type);
 void* mysql_dial_thread(void*arg);
 

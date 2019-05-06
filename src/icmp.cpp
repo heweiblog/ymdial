@@ -252,7 +252,8 @@ void *icmp_check_thread(void*arg)
 
 		while(true)
 		{
-				for(iter = ping_set.begin(),tmp_iter = iter++ ; iter != ping_set.end() ; iter = tmp_iter,tmp_iter = iter++)
+				//for(iter = ping_set.begin(),tmp_iter = iter++ ; iter != ping_set.end() ; iter = tmp_iter,tmp_iter = iter++)
+				for(tmp_iter = ping_set.begin(),iter = tmp_iter ; tmp_iter != ping_set.end() ; iter = ++tmp_iter)
 				{
 						inet_pton(AF_INET,(*iter).c_str(),&pstDestAddr.sin_addr.s_addr);
 
@@ -299,7 +300,7 @@ void *icmp_check_thread(void*arg)
 						}
 				}
 
-				sleep(13);
+				sleep(7);
 		}
 }
 
