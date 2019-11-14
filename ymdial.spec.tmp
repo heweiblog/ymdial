@@ -3,11 +3,13 @@ Version: @VERSION@
 Release: @RELEASE@%{dist}
 Summary: YAMU ymdial
 
+
 Group: Applications/Internet
 License: GPL
 URL: http://www.yamutech.com
 Source0: ymdial-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+
 
 %description
 YAMU ymdial
@@ -21,6 +23,7 @@ YAMU ymdial
 #make %{?_smp_mflags}
 make
 
+
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/%{_bindir}
@@ -32,11 +35,17 @@ install -m 755 ymdial %{buildroot}/%{_bindir}/ymdial
 install -m 755 config/ymdial.ini  %{buildroot}/etc/
 install -m 755 config/ymdiald  %{buildroot}/etc/init.d/
 
+
 %clean
 rm -rf %{buildroot}
 
+
 %post
-chkconfig --add ymdiald
+if [ "$1" = "1" ]
+then
+	chkconfig --add ymdiald
+fi
+
 
 %files
 %defattr(-,root,root,-)
@@ -46,8 +55,12 @@ chkconfig --add ymdiald
 /var/log/ymdial/
 /etc/init.d/ymdiald
 
+
 %preun
-chkconfig --del ymdiald
+if [ "$1" = "0" ]
+then
+	chkconfig --del ymdiald
+fi
+
 
 %changelog
-

@@ -185,7 +185,7 @@ COMPACT_GOOGLE_LOG_INFO	include/glog/logging.h	395;"	d
 COMPACT_GOOGLE_LOG_INFO	include/glog/logging.h	400;"	d
 COMPACT_GOOGLE_LOG_WARNING	include/glog/logging.h	405;"	d
 COMPACT_GOOGLE_LOG_WARNING	include/glog/logging.h	410;"	d
-COMPILE_FLAGS	Makefile	/^COMPILE_FLAGS= -g -W -O2 -DHAVE_NETINET_IN_H -I.\/include -I.\/clib\/include -I\/usr\/include\/openssl -I\/usr\/include\/oracle\/12.1\/client64\/$/;"	m
+COMPILE_FLAGS	Makefile	/^COMPILE_FLAGS= -g -W -O2 -DHAVE_NETINET_IN_H -I.\/include -I.\/clib\/include -I\/usr\/include\/openssl$/;"	m
 CONF_FILE	include/conf.h	6;"	d
 CONNECTION_STACK_LIMIT	include/thrift/server/TNonblockingServer.h	/^  static const size_t CONNECTION_STACK_LIMIT = 1024;$/;"	m	class:apache::thrift::server::TNonblockingServer
 COPY	include/thrift/transport/TBufferTransports.h	/^  , COPY = 2$/;"	e	enum:apache::thrift::transport::TMemoryBuffer::MemoryPolicy
@@ -849,7 +849,7 @@ KLONG	clib/src/process_info.c	36;"	d	file:
 LIBEVENT_VERSION_MAJOR	include/thrift/server/TNonblockingServer.h	58;"	d
 LIBEVENT_VERSION_MINOR	include/thrift/server/TNonblockingServer.h	59;"	d
 LIBEVENT_VERSION_REL	include/thrift/server/TNonblockingServer.h	60;"	d
-LIBRAYS	Makefile	/^LIBRAYS= -lrt -lpthread -ldl -lz -lresolv -lcrypto -lssl -lnetsnmp .\/lib\/*.a -L\/usr\/lib\/oracle\/12.1\/client64\/lib\/ -lclntsh -locci -lmql1 -lipc1 -lnnz12 -lons -lclntshcore$/;"	m
+LIBRAYS	Makefile	/^LIBRAYS= -lrt -lpthread -ldl -lz -lresolv -lcrypto -lssl  .\/lib\/*.a$/;"	m
 LIST	include/thrift/protocol/TDebugProtocol.h	/^  , LIST$/;"	e	enum:apache::thrift::protocol::TDebugProtocol::write_state_t
 LISTEN_BACKLOG	include/thrift/server/TNonblockingServer.h	/^  static const int LISTEN_BACKLOG = 1024;$/;"	m	class:apache::thrift::server::TNonblockingServer
 LIST_HEAD	include/list.h	65;"	d
@@ -1308,14 +1308,14 @@ TGT	Makefile	/^TGT=ymdial$/;"	m
 THRIFT_APPLICATION_EXCEPTION	include/thrift/c_glib/thrift_application_exception.h	34;"	d
 THRIFT_APPLICATION_EXCEPTION_CLASS	include/thrift/c_glib/thrift_application_exception.h	36;"	d
 THRIFT_APPLICATION_EXCEPTION_ERROR	include/thrift/c_glib/thrift_application_exception.h	75;"	d
-THRIFT_APPLICATION_EXCEPTION_ERROR_BAD_SEQUENCE_ID	include/thrift/c_glib/thrift_application_exception.h	/^  THRIFT_APPLICATION_EXCEPTION_ERROR_BAD_SEQUENCE_ID,$/;"	e	enum:__anon13
-THRIFT_APPLICATION_EXCEPTION_ERROR_INTERNAL_ERROR	include/thrift/c_glib/thrift_application_exception.h	/^  THRIFT_APPLICATION_EXCEPTION_ERROR_INTERNAL_ERROR,$/;"	e	enum:__anon13
-THRIFT_APPLICATION_EXCEPTION_ERROR_INVALID_MESSAGE_TYPE	include/thrift/c_glib/thrift_application_exception.h	/^  THRIFT_APPLICATION_EXCEPTION_ERROR_INVALID_MESSAGE_TYPE,$/;"	e	enum:__anon13
-THRIFT_APPLICATION_EXCEPTION_ERROR_MISSING_RESULT	include/thrift/c_glib/thrift_application_exception.h	/^  THRIFT_APPLICATION_EXCEPTION_ERROR_MISSING_RESULT,$/;"	e	enum:__anon13
-THRIFT_APPLICATION_EXCEPTION_ERROR_PROTOCOL_ERROR	include/thrift/c_glib/thrift_application_exception.h	/^  THRIFT_APPLICATION_EXCEPTION_ERROR_PROTOCOL_ERROR$/;"	e	enum:__anon13
-THRIFT_APPLICATION_EXCEPTION_ERROR_UNKNOWN	include/thrift/c_glib/thrift_application_exception.h	/^  THRIFT_APPLICATION_EXCEPTION_ERROR_UNKNOWN,$/;"	e	enum:__anon13
-THRIFT_APPLICATION_EXCEPTION_ERROR_UNKNOWN_METHOD	include/thrift/c_glib/thrift_application_exception.h	/^  THRIFT_APPLICATION_EXCEPTION_ERROR_UNKNOWN_METHOD,$/;"	e	enum:__anon13
-THRIFT_APPLICATION_EXCEPTION_ERROR_WRONG_METHOD_NAME	include/thrift/c_glib/thrift_application_exception.h	/^  THRIFT_APPLICATION_EXCEPTION_ERROR_WRONG_METHOD_NAME,$/;"	e	enum:__anon13
+THRIFT_APPLICATION_EXCEPTION_ERROR_BAD_SEQUENCE_ID	include/thrift/c_glib/thrift_application_exception.h	/^  THRIFT_APPLICATION_EXCEPTION_ERROR_BAD_SEQUENCE_ID,$/;"	e	enum:__anon14
+THRIFT_APPLICATION_EXCEPTION_ERROR_INTERNAL_ERROR	include/thrift/c_glib/thrift_application_exception.h	/^  THRIFT_APPLICATION_EXCEPTION_ERROR_INTERNAL_ERROR,$/;"	e	enum:__anon14
+THRIFT_APPLICATION_EXCEPTION_ERROR_INVALID_MESSAGE_TYPE	include/thrift/c_glib/thrift_application_exception.h	/^  THRIFT_APPLICATION_EXCEPTION_ERROR_INVALID_MESSAGE_TYPE,$/;"	e	enum:__anon14
+THRIFT_APPLICATION_EXCEPTION_ERROR_MISSING_RESULT	include/thrift/c_glib/thrift_application_exception.h	/^  THRIFT_APPLICATION_EXCEPTION_ERROR_MISSING_RESULT,$/;"	e	enum:__anon14
+THRIFT_APPLICATION_EXCEPTION_ERROR_PROTOCOL_ERROR	include/thrift/c_glib/thrift_application_exception.h	/^  THRIFT_APPLICATION_EXCEPTION_ERROR_PROTOCOL_ERROR$/;"	e	enum:__anon14
+THRIFT_APPLICATION_EXCEPTION_ERROR_UNKNOWN	include/thrift/c_glib/thrift_application_exception.h	/^  THRIFT_APPLICATION_EXCEPTION_ERROR_UNKNOWN,$/;"	e	enum:__anon14
+THRIFT_APPLICATION_EXCEPTION_ERROR_UNKNOWN_METHOD	include/thrift/c_glib/thrift_application_exception.h	/^  THRIFT_APPLICATION_EXCEPTION_ERROR_UNKNOWN_METHOD,$/;"	e	enum:__anon14
+THRIFT_APPLICATION_EXCEPTION_ERROR_WRONG_METHOD_NAME	include/thrift/c_glib/thrift_application_exception.h	/^  THRIFT_APPLICATION_EXCEPTION_ERROR_WRONG_METHOD_NAME,$/;"	e	enum:__anon14
 THRIFT_APPLICATION_EXCEPTION_GET_CLASS	include/thrift/c_glib/thrift_application_exception.h	38;"	d
 THRIFT_BINARY_PROTOCOL	include/thrift/c_glib/protocol/thrift_binary_protocol.h	37;"	d
 THRIFT_BINARY_PROTOCOL_CLASS	include/thrift/c_glib/protocol/thrift_binary_protocol.h	39;"	d
@@ -1376,12 +1376,12 @@ THRIFT_PROCESSOR_GET_CLASS	include/thrift/c_glib/processor/thrift_processor.h	39
 THRIFT_PROTOCOL	include/thrift/c_glib/protocol/thrift_protocol.h	72;"	d
 THRIFT_PROTOCOL_CLASS	include/thrift/c_glib/protocol/thrift_protocol.h	74;"	d
 THRIFT_PROTOCOL_ERROR	include/thrift/c_glib/protocol/thrift_protocol.h	334;"	d
-THRIFT_PROTOCOL_ERROR_BAD_VERSION	include/thrift/c_glib/protocol/thrift_protocol.h	/^  THRIFT_PROTOCOL_ERROR_BAD_VERSION,$/;"	e	enum:__anon12
-THRIFT_PROTOCOL_ERROR_INVALID_DATA	include/thrift/c_glib/protocol/thrift_protocol.h	/^  THRIFT_PROTOCOL_ERROR_INVALID_DATA,$/;"	e	enum:__anon12
-THRIFT_PROTOCOL_ERROR_NEGATIVE_SIZE	include/thrift/c_glib/protocol/thrift_protocol.h	/^  THRIFT_PROTOCOL_ERROR_NEGATIVE_SIZE,$/;"	e	enum:__anon12
-THRIFT_PROTOCOL_ERROR_NOT_IMPLEMENTED	include/thrift/c_glib/protocol/thrift_protocol.h	/^  THRIFT_PROTOCOL_ERROR_NOT_IMPLEMENTED$/;"	e	enum:__anon12
-THRIFT_PROTOCOL_ERROR_SIZE_LIMIT	include/thrift/c_glib/protocol/thrift_protocol.h	/^  THRIFT_PROTOCOL_ERROR_SIZE_LIMIT,$/;"	e	enum:__anon12
-THRIFT_PROTOCOL_ERROR_UNKNOWN	include/thrift/c_glib/protocol/thrift_protocol.h	/^  THRIFT_PROTOCOL_ERROR_UNKNOWN,$/;"	e	enum:__anon12
+THRIFT_PROTOCOL_ERROR_BAD_VERSION	include/thrift/c_glib/protocol/thrift_protocol.h	/^  THRIFT_PROTOCOL_ERROR_BAD_VERSION,$/;"	e	enum:__anon11
+THRIFT_PROTOCOL_ERROR_INVALID_DATA	include/thrift/c_glib/protocol/thrift_protocol.h	/^  THRIFT_PROTOCOL_ERROR_INVALID_DATA,$/;"	e	enum:__anon11
+THRIFT_PROTOCOL_ERROR_NEGATIVE_SIZE	include/thrift/c_glib/protocol/thrift_protocol.h	/^  THRIFT_PROTOCOL_ERROR_NEGATIVE_SIZE,$/;"	e	enum:__anon11
+THRIFT_PROTOCOL_ERROR_NOT_IMPLEMENTED	include/thrift/c_glib/protocol/thrift_protocol.h	/^  THRIFT_PROTOCOL_ERROR_NOT_IMPLEMENTED$/;"	e	enum:__anon11
+THRIFT_PROTOCOL_ERROR_SIZE_LIMIT	include/thrift/c_glib/protocol/thrift_protocol.h	/^  THRIFT_PROTOCOL_ERROR_SIZE_LIMIT,$/;"	e	enum:__anon11
+THRIFT_PROTOCOL_ERROR_UNKNOWN	include/thrift/c_glib/protocol/thrift_protocol.h	/^  THRIFT_PROTOCOL_ERROR_UNKNOWN,$/;"	e	enum:__anon11
 THRIFT_PROTOCOL_FACTORY	include/thrift/c_glib/protocol/thrift_protocol_factory.h	36;"	d
 THRIFT_PROTOCOL_FACTORY_CLASS	include/thrift/c_glib/protocol/thrift_protocol_factory.h	38;"	d
 THRIFT_PROTOCOL_FACTORY_GET_CLASS	include/thrift/c_glib/protocol/thrift_protocol_factory.h	40;"	d
@@ -1392,12 +1392,12 @@ THRIFT_SERVER_GET_CLASS	include/thrift/c_glib/server/thrift_server.h	42;"	d
 THRIFT_SERVER_SOCKET	include/thrift/c_glib/transport/thrift_server_socket.h	36;"	d
 THRIFT_SERVER_SOCKET_CLASS	include/thrift/c_glib/transport/thrift_server_socket.h	38;"	d
 THRIFT_SERVER_SOCKET_ERROR	include/thrift/c_glib/transport/thrift_server_socket.h	84;"	d
-THRIFT_SERVER_SOCKET_ERROR_ACCEPT	include/thrift/c_glib/transport/thrift_server_socket.h	/^  THRIFT_SERVER_SOCKET_ERROR_ACCEPT,$/;"	e	enum:__anon14
-THRIFT_SERVER_SOCKET_ERROR_BIND	include/thrift/c_glib/transport/thrift_server_socket.h	/^  THRIFT_SERVER_SOCKET_ERROR_BIND,$/;"	e	enum:__anon14
-THRIFT_SERVER_SOCKET_ERROR_CLOSE	include/thrift/c_glib/transport/thrift_server_socket.h	/^  THRIFT_SERVER_SOCKET_ERROR_CLOSE$/;"	e	enum:__anon14
-THRIFT_SERVER_SOCKET_ERROR_LISTEN	include/thrift/c_glib/transport/thrift_server_socket.h	/^  THRIFT_SERVER_SOCKET_ERROR_LISTEN,$/;"	e	enum:__anon14
-THRIFT_SERVER_SOCKET_ERROR_SETSOCKOPT	include/thrift/c_glib/transport/thrift_server_socket.h	/^  THRIFT_SERVER_SOCKET_ERROR_SETSOCKOPT,$/;"	e	enum:__anon14
-THRIFT_SERVER_SOCKET_ERROR_SOCKET	include/thrift/c_glib/transport/thrift_server_socket.h	/^  THRIFT_SERVER_SOCKET_ERROR_SOCKET,$/;"	e	enum:__anon14
+THRIFT_SERVER_SOCKET_ERROR_ACCEPT	include/thrift/c_glib/transport/thrift_server_socket.h	/^  THRIFT_SERVER_SOCKET_ERROR_ACCEPT,$/;"	e	enum:__anon12
+THRIFT_SERVER_SOCKET_ERROR_BIND	include/thrift/c_glib/transport/thrift_server_socket.h	/^  THRIFT_SERVER_SOCKET_ERROR_BIND,$/;"	e	enum:__anon12
+THRIFT_SERVER_SOCKET_ERROR_CLOSE	include/thrift/c_glib/transport/thrift_server_socket.h	/^  THRIFT_SERVER_SOCKET_ERROR_CLOSE$/;"	e	enum:__anon12
+THRIFT_SERVER_SOCKET_ERROR_LISTEN	include/thrift/c_glib/transport/thrift_server_socket.h	/^  THRIFT_SERVER_SOCKET_ERROR_LISTEN,$/;"	e	enum:__anon12
+THRIFT_SERVER_SOCKET_ERROR_SETSOCKOPT	include/thrift/c_glib/transport/thrift_server_socket.h	/^  THRIFT_SERVER_SOCKET_ERROR_SETSOCKOPT,$/;"	e	enum:__anon12
+THRIFT_SERVER_SOCKET_ERROR_SOCKET	include/thrift/c_glib/transport/thrift_server_socket.h	/^  THRIFT_SERVER_SOCKET_ERROR_SOCKET,$/;"	e	enum:__anon12
 THRIFT_SERVER_SOCKET_GET_CLASS	include/thrift/c_glib/transport/thrift_server_socket.h	40;"	d
 THRIFT_SERVER_TRANSPORT	include/thrift/c_glib/transport/thrift_server_transport.h	35;"	d
 THRIFT_SERVER_TRANSPORT_CLASS	include/thrift/c_glib/transport/thrift_server_transport.h	37;"	d
@@ -1415,13 +1415,13 @@ THRIFT_STRUCT_H	include/thrift/c_glib/thrift_struct.h	21;"	d
 THRIFT_TRANSPORT	include/thrift/c_glib/transport/thrift_transport.h	39;"	d
 THRIFT_TRANSPORT_CLASS	include/thrift/c_glib/transport/thrift_transport.h	41;"	d
 THRIFT_TRANSPORT_ERROR	include/thrift/c_glib/transport/thrift_transport.h	146;"	d
-THRIFT_TRANSPORT_ERROR_CLOSE	include/thrift/c_glib/transport/thrift_transport.h	/^  THRIFT_TRANSPORT_ERROR_CLOSE$/;"	e	enum:__anon15
-THRIFT_TRANSPORT_ERROR_CONNECT	include/thrift/c_glib/transport/thrift_transport.h	/^  THRIFT_TRANSPORT_ERROR_CONNECT,$/;"	e	enum:__anon15
-THRIFT_TRANSPORT_ERROR_HOST	include/thrift/c_glib/transport/thrift_transport.h	/^  THRIFT_TRANSPORT_ERROR_HOST,$/;"	e	enum:__anon15
-THRIFT_TRANSPORT_ERROR_RECEIVE	include/thrift/c_glib/transport/thrift_transport.h	/^  THRIFT_TRANSPORT_ERROR_RECEIVE,$/;"	e	enum:__anon15
-THRIFT_TRANSPORT_ERROR_SEND	include/thrift/c_glib/transport/thrift_transport.h	/^  THRIFT_TRANSPORT_ERROR_SEND,$/;"	e	enum:__anon15
-THRIFT_TRANSPORT_ERROR_SOCKET	include/thrift/c_glib/transport/thrift_transport.h	/^  THRIFT_TRANSPORT_ERROR_SOCKET,$/;"	e	enum:__anon15
-THRIFT_TRANSPORT_ERROR_UNKNOWN	include/thrift/c_glib/transport/thrift_transport.h	/^  THRIFT_TRANSPORT_ERROR_UNKNOWN,$/;"	e	enum:__anon15
+THRIFT_TRANSPORT_ERROR_CLOSE	include/thrift/c_glib/transport/thrift_transport.h	/^  THRIFT_TRANSPORT_ERROR_CLOSE$/;"	e	enum:__anon13
+THRIFT_TRANSPORT_ERROR_CONNECT	include/thrift/c_glib/transport/thrift_transport.h	/^  THRIFT_TRANSPORT_ERROR_CONNECT,$/;"	e	enum:__anon13
+THRIFT_TRANSPORT_ERROR_HOST	include/thrift/c_glib/transport/thrift_transport.h	/^  THRIFT_TRANSPORT_ERROR_HOST,$/;"	e	enum:__anon13
+THRIFT_TRANSPORT_ERROR_RECEIVE	include/thrift/c_glib/transport/thrift_transport.h	/^  THRIFT_TRANSPORT_ERROR_RECEIVE,$/;"	e	enum:__anon13
+THRIFT_TRANSPORT_ERROR_SEND	include/thrift/c_glib/transport/thrift_transport.h	/^  THRIFT_TRANSPORT_ERROR_SEND,$/;"	e	enum:__anon13
+THRIFT_TRANSPORT_ERROR_SOCKET	include/thrift/c_glib/transport/thrift_transport.h	/^  THRIFT_TRANSPORT_ERROR_SOCKET,$/;"	e	enum:__anon13
+THRIFT_TRANSPORT_ERROR_UNKNOWN	include/thrift/c_glib/transport/thrift_transport.h	/^  THRIFT_TRANSPORT_ERROR_UNKNOWN,$/;"	e	enum:__anon13
 THRIFT_TRANSPORT_FACTORY	include/thrift/c_glib/transport/thrift_transport_factory.h	37;"	d
 THRIFT_TRANSPORT_FACTORY_CLASS	include/thrift/c_glib/transport/thrift_transport_factory.h	39;"	d
 THRIFT_TRANSPORT_FACTORY_GET_CLASS	include/thrift/c_glib/transport/thrift_transport_factory.h	41;"	d
@@ -1567,69 +1567,69 @@ TZlibTransportException	include/thrift/transport/TZlibTransport.h	/^  TZlibTrans
 TZlibTransportException	include/thrift/transport/TZlibTransport.h	/^class TZlibTransportException : public TTransportException {$/;"	c	namespace:apache::thrift::transport
 TZlibTransportFactory	include/thrift/transport/TZlibTransport.h	/^  TZlibTransportFactory() {}$/;"	f	class:apache::thrift::transport::TZlibTransportFactory
 TZlibTransportFactory	include/thrift/transport/TZlibTransport.h	/^class TZlibTransportFactory : public TTransportFactory {$/;"	c	namespace:apache::thrift::transport
-T_BOOL	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_BOOL   = 2,$/;"	e	enum:__anon10
+T_BOOL	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_BOOL   = 2,$/;"	e	enum:__anon9
 T_BOOL	include/thrift/protocol/TProtocol.h	/^  T_BOOL       = 2,$/;"	e	enum:apache::thrift::protocol::TType
-T_BYTE	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_BYTE   = 3,$/;"	e	enum:__anon10
+T_BYTE	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_BYTE   = 3,$/;"	e	enum:__anon9
 T_BYTE	include/thrift/protocol/TProtocol.h	/^  T_BYTE       = 3,$/;"	e	enum:apache::thrift::protocol::TType
-T_CALL	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_CALL      = 1,$/;"	e	enum:__anon11
+T_CALL	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_CALL      = 1,$/;"	e	enum:__anon10
 T_CALL	include/thrift/protocol/TProtocol.h	/^  T_CALL       = 1,$/;"	e	enum:apache::thrift::protocol::TMessageType
 T_DEBUG	include/thrift/TLogging.h	64;"	d
 T_DEBUG	include/thrift/TLogging.h	69;"	d
 T_DEBUG_L	include/thrift/TLogging.h	102;"	d
 T_DEBUG_T	include/thrift/TLogging.h	79;"	d
 T_DEBUG_T	include/thrift/TLogging.h	91;"	d
-T_DOUBLE	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_DOUBLE = 4,$/;"	e	enum:__anon10
+T_DOUBLE	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_DOUBLE = 4,$/;"	e	enum:__anon9
 T_DOUBLE	include/thrift/protocol/TProtocol.h	/^  T_DOUBLE     = 4,$/;"	e	enum:apache::thrift::protocol::TType
 T_ERROR	include/thrift/TLogging.h	113;"	d
 T_ERROR_ABORT	include/thrift/TLogging.h	130;"	d
-T_EXCEPTION	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_EXCEPTION = 3,$/;"	e	enum:__anon11
+T_EXCEPTION	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_EXCEPTION = 3,$/;"	e	enum:__anon10
 T_EXCEPTION	include/thrift/protocol/TProtocol.h	/^  T_EXCEPTION  = 3,$/;"	e	enum:apache::thrift::protocol::TMessageType
 T_GENERIC_PROTOCOL	include/thrift/TLogging.h	176;"	d
 T_GENERIC_PROTOCOL	include/thrift/TLogging.h	186;"	d
 T_GENERIC_PROTOCOL	include/thrift/TLogging.h	196;"	d
 T_GLOBAL_DEBUGGING_LEVEL	include/thrift/TLogging.h	46;"	d
 T_GLOBAL_LOGGING_LEVEL	include/thrift/TLogging.h	53;"	d
-T_I08	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_I08    = 3,$/;"	e	enum:__anon10
+T_I08	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_I08    = 3,$/;"	e	enum:__anon9
 T_I08	include/thrift/protocol/TProtocol.h	/^  T_I08        = 3,$/;"	e	enum:apache::thrift::protocol::TType
-T_I16	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_I16    = 6,$/;"	e	enum:__anon10
+T_I16	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_I16    = 6,$/;"	e	enum:__anon9
 T_I16	include/thrift/protocol/TProtocol.h	/^  T_I16        = 6,$/;"	e	enum:apache::thrift::protocol::TType
-T_I32	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_I32    = 8,$/;"	e	enum:__anon10
+T_I32	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_I32    = 8,$/;"	e	enum:__anon9
 T_I32	include/thrift/protocol/TProtocol.h	/^  T_I32        = 8,$/;"	e	enum:apache::thrift::protocol::TType
-T_I64	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_I64    = 10,$/;"	e	enum:__anon10
+T_I64	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_I64    = 10,$/;"	e	enum:__anon9
 T_I64	include/thrift/protocol/TProtocol.h	/^  T_I64        = 10,$/;"	e	enum:apache::thrift::protocol::TType
-T_LIST	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_LIST   = 15,$/;"	e	enum:__anon10
+T_LIST	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_LIST   = 15,$/;"	e	enum:__anon9
 T_LIST	include/thrift/protocol/TProtocol.h	/^  T_LIST       = 15,$/;"	e	enum:apache::thrift::protocol::TType
 T_LOG_OPER	include/thrift/TLogging.h	148;"	d
 T_LOG_OPER	include/thrift/TLogging.h	160;"	d
-T_MAP	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_MAP    = 13,$/;"	e	enum:__anon10
+T_MAP	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_MAP    = 13,$/;"	e	enum:__anon9
 T_MAP	include/thrift/protocol/TProtocol.h	/^  T_MAP        = 13,$/;"	e	enum:apache::thrift::protocol::TType
-T_ONEWAY	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_ONEWAY    = 4$/;"	e	enum:__anon11
+T_ONEWAY	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_ONEWAY    = 4$/;"	e	enum:__anon10
 T_ONEWAY	include/thrift/protocol/TProtocol.h	/^  T_ONEWAY     = 4$/;"	e	enum:apache::thrift::protocol::TMessageType
 T_OVERLOAD_CLOSE_ON_ACCEPT	include/thrift/server/TNonblockingServer.h	/^  T_OVERLOAD_CLOSE_ON_ACCEPT,  \/\/\/< Drop new connections immediately *\/$/;"	e	enum:apache::thrift::server::TOverloadAction
 T_OVERLOAD_DRAIN_TASK_QUEUE	include/thrift/server/TNonblockingServer.h	/^  T_OVERLOAD_DRAIN_TASK_QUEUE  \/\/\/< Drop some tasks from head of task queue *\/$/;"	e	enum:apache::thrift::server::TOverloadAction
 T_OVERLOAD_NO_ACTION	include/thrift/server/TNonblockingServer.h	/^  T_OVERLOAD_NO_ACTION,        \/\/\/< Don't handle overload *\/$/;"	e	enum:apache::thrift::server::TOverloadAction
-T_REPLY	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_REPLY     = 2,$/;"	e	enum:__anon11
+T_REPLY	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_REPLY     = 2,$/;"	e	enum:__anon10
 T_REPLY	include/thrift/protocol/TProtocol.h	/^  T_REPLY      = 2,$/;"	e	enum:apache::thrift::protocol::TMessageType
-T_SET	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_SET    = 14,$/;"	e	enum:__anon10
+T_SET	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_SET    = 14,$/;"	e	enum:__anon9
 T_SET	include/thrift/protocol/TProtocol.h	/^  T_SET        = 14,$/;"	e	enum:apache::thrift::protocol::TType
-T_STOP	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_STOP   = 0,$/;"	e	enum:__anon10
+T_STOP	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_STOP   = 0,$/;"	e	enum:__anon9
 T_STOP	include/thrift/protocol/TProtocol.h	/^  T_STOP       = 0,$/;"	e	enum:apache::thrift::protocol::TType
-T_STRING	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_STRING = 11,$/;"	e	enum:__anon10
+T_STRING	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_STRING = 11,$/;"	e	enum:__anon9
 T_STRING	include/thrift/protocol/TProtocol.h	/^  T_STRING     = 11,$/;"	e	enum:apache::thrift::protocol::TType
-T_STRUCT	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_STRUCT = 12,$/;"	e	enum:__anon10
+T_STRUCT	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_STRUCT = 12,$/;"	e	enum:__anon9
 T_STRUCT	include/thrift/protocol/TProtocol.h	/^  T_STRUCT     = 12,$/;"	e	enum:apache::thrift::protocol::TType
-T_U64	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_U64    = 9,$/;"	e	enum:__anon10
+T_U64	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_U64    = 9,$/;"	e	enum:__anon9
 T_U64	include/thrift/protocol/TProtocol.h	/^  T_U64        = 9,$/;"	e	enum:apache::thrift::protocol::TType
-T_UTF16	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_UTF16  = 17$/;"	e	enum:__anon10
+T_UTF16	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_UTF16  = 17$/;"	e	enum:__anon9
 T_UTF16	include/thrift/protocol/TProtocol.h	/^  T_UTF16      = 17$/;"	e	enum:apache::thrift::protocol::TType
-T_UTF7	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_UTF7   = 11,$/;"	e	enum:__anon10
+T_UTF7	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_UTF7   = 11,$/;"	e	enum:__anon9
 T_UTF7	include/thrift/protocol/TProtocol.h	/^  T_UTF7       = 11,$/;"	e	enum:apache::thrift::protocol::TType
-T_UTF8	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_UTF8   = 16,$/;"	e	enum:__anon10
+T_UTF8	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_UTF8   = 16,$/;"	e	enum:__anon9
 T_UTF8	include/thrift/protocol/TProtocol.h	/^  T_UTF8       = 16,$/;"	e	enum:apache::thrift::protocol::TType
 T_VIRTUAL_CALL	include/thrift/TLogging.h	174;"	d
 T_VIRTUAL_CALL	include/thrift/TLogging.h	184;"	d
 T_VIRTUAL_CALL	include/thrift/TLogging.h	195;"	d
-T_VOID	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_VOID   = 1,$/;"	e	enum:__anon10
+T_VOID	include/thrift/c_glib/protocol/thrift_protocol.h	/^  T_VOID   = 1,$/;"	e	enum:__anon9
 T_VOID	include/thrift/protocol/TProtocol.h	/^  T_VOID       = 1,$/;"	e	enum:apache::thrift::protocol::TType
 Thread	include/thrift/concurrency/Thread.h	/^class Thread {$/;"	c	namespace:apache::thrift::concurrency
 ThreadFactory	include/thrift/concurrency/Thread.h	/^class ThreadFactory {$/;"	c	namespace:apache::thrift::concurrency
@@ -1637,7 +1637,7 @@ ThreadManager	include/thrift/concurrency/ThreadManager.h	/^  ThreadManager() {}$
 ThreadManager	include/thrift/concurrency/ThreadManager.h	/^class ThreadManager {$/;"	c	namespace:apache::thrift::concurrency
 ThriftApplicationException	include/thrift/c_glib/thrift_application_exception.h	/^typedef struct _ThriftApplicationException ThriftApplicationException;$/;"	t	typeref:struct:_ThriftApplicationException
 ThriftApplicationExceptionClass	include/thrift/c_glib/thrift_application_exception.h	/^typedef struct _ThriftApplicationExceptionClass ThriftApplicationExceptionClass;$/;"	t	typeref:struct:_ThriftApplicationExceptionClass
-ThriftApplicationExceptionError	include/thrift/c_glib/thrift_application_exception.h	/^} ThriftApplicationExceptionError;$/;"	t	typeref:enum:__anon13
+ThriftApplicationExceptionError	include/thrift/c_glib/thrift_application_exception.h	/^} ThriftApplicationExceptionError;$/;"	t	typeref:enum:__anon14
 ThriftBinaryProtocol	include/thrift/c_glib/protocol/thrift_binary_protocol.h	/^typedef struct _ThriftBinaryProtocol ThriftBinaryProtocol;$/;"	t	typeref:struct:_ThriftBinaryProtocol
 ThriftBinaryProtocolClass	include/thrift/c_glib/protocol/thrift_binary_protocol.h	/^typedef struct _ThriftBinaryProtocolClass ThriftBinaryProtocolClass;$/;"	t	typeref:struct:_ThriftBinaryProtocolClass
 ThriftBinaryProtocolFactory	include/thrift/c_glib/protocol/thrift_binary_protocol_factory.h	/^typedef struct _ThriftBinaryProtocolFactory ThriftBinaryProtocolFactory;$/;"	t	typeref:struct:_ThriftBinaryProtocolFactory
@@ -1650,19 +1650,19 @@ ThriftFramedTransportClass	include/thrift/c_glib/transport/thrift_framed_transpo
 ThriftJSONString	include/thrift/protocol/TJSONProtocol.h	/^  std::string ThriftJSONString(const ThriftStruct& ts) {$/;"	f	namespace:apache::thrift
 ThriftMemoryBuffer	include/thrift/c_glib/transport/thrift_memory_buffer.h	/^typedef struct _ThriftMemoryBuffer ThriftMemoryBuffer;$/;"	t	typeref:struct:_ThriftMemoryBuffer
 ThriftMemoryBufferClass	include/thrift/c_glib/transport/thrift_memory_buffer.h	/^typedef struct _ThriftMemoryBufferClass ThriftMemoryBufferClass;$/;"	t	typeref:struct:_ThriftMemoryBufferClass
-ThriftMessageType	include/thrift/c_glib/protocol/thrift_protocol.h	/^} ThriftMessageType;$/;"	t	typeref:enum:__anon11
+ThriftMessageType	include/thrift/c_glib/protocol/thrift_protocol.h	/^} ThriftMessageType;$/;"	t	typeref:enum:__anon10
 ThriftProcessor	include/thrift/c_glib/processor/thrift_processor.h	/^typedef struct _ThriftProcessor ThriftProcessor;$/;"	t	typeref:struct:_ThriftProcessor
 ThriftProcessorClass	include/thrift/c_glib/processor/thrift_processor.h	/^typedef struct _ThriftProcessorClass ThriftProcessorClass;$/;"	t	typeref:struct:_ThriftProcessorClass
 ThriftProtocol	include/thrift/c_glib/protocol/thrift_protocol.h	/^typedef struct _ThriftProtocol ThriftProtocol;$/;"	t	typeref:struct:_ThriftProtocol
 ThriftProtocolClass	include/thrift/c_glib/protocol/thrift_protocol.h	/^typedef struct _ThriftProtocolClass ThriftProtocolClass;$/;"	t	typeref:struct:_ThriftProtocolClass
-ThriftProtocolError	include/thrift/c_glib/protocol/thrift_protocol.h	/^} ThriftProtocolError;$/;"	t	typeref:enum:__anon12
+ThriftProtocolError	include/thrift/c_glib/protocol/thrift_protocol.h	/^} ThriftProtocolError;$/;"	t	typeref:enum:__anon11
 ThriftProtocolFactory	include/thrift/c_glib/protocol/thrift_protocol_factory.h	/^typedef struct _ThriftProtocolFactory ThriftProtocolFactory;$/;"	t	typeref:struct:_ThriftProtocolFactory
 ThriftProtocolFactoryClass	include/thrift/c_glib/protocol/thrift_protocol_factory.h	/^typedef struct _ThriftProtocolFactoryClass ThriftProtocolFactoryClass;$/;"	t	typeref:struct:_ThriftProtocolFactoryClass
 ThriftServer	include/thrift/c_glib/server/thrift_server.h	/^typedef struct _ThriftServer ThriftServer;$/;"	t	typeref:struct:_ThriftServer
 ThriftServerClass	include/thrift/c_glib/server/thrift_server.h	/^typedef struct _ThriftServerClass ThriftServerClass;$/;"	t	typeref:struct:_ThriftServerClass
 ThriftServerSocket	include/thrift/c_glib/transport/thrift_server_socket.h	/^typedef struct _ThriftServerSocket ThriftServerSocket;$/;"	t	typeref:struct:_ThriftServerSocket
 ThriftServerSocketClass	include/thrift/c_glib/transport/thrift_server_socket.h	/^typedef struct _ThriftServerSocketClass ThriftServerSocketClass;$/;"	t	typeref:struct:_ThriftServerSocketClass
-ThriftServerSocketError	include/thrift/c_glib/transport/thrift_server_socket.h	/^} ThriftServerSocketError;$/;"	t	typeref:enum:__anon14
+ThriftServerSocketError	include/thrift/c_glib/transport/thrift_server_socket.h	/^} ThriftServerSocketError;$/;"	t	typeref:enum:__anon12
 ThriftServerTransport	include/thrift/c_glib/transport/thrift_server_transport.h	/^typedef struct _ThriftServerTransport ThriftServerTransport;$/;"	t	typeref:struct:_ThriftServerTransport
 ThriftServerTransportClass	include/thrift/c_glib/transport/thrift_server_transport.h	/^typedef struct _ThriftServerTransportClass ThriftServerTransportClass;$/;"	t	typeref:struct:_ThriftServerTransportClass
 ThriftSimpleServer	include/thrift/c_glib/server/thrift_simple_server.h	/^typedef struct _ThriftSimpleServer ThriftSimpleServer;$/;"	t	typeref:struct:_ThriftSimpleServer
@@ -1673,10 +1673,10 @@ ThriftStruct	include/thrift/c_glib/thrift_struct.h	/^typedef struct _ThriftStruc
 ThriftStructClass	include/thrift/c_glib/thrift_struct.h	/^typedef struct _ThriftStructClass ThriftStructClass;$/;"	t	typeref:struct:_ThriftStructClass
 ThriftTransport	include/thrift/c_glib/transport/thrift_transport.h	/^typedef struct _ThriftTransport ThriftTransport;$/;"	t	typeref:struct:_ThriftTransport
 ThriftTransportClass	include/thrift/c_glib/transport/thrift_transport.h	/^typedef struct _ThriftTransportClass ThriftTransportClass;$/;"	t	typeref:struct:_ThriftTransportClass
-ThriftTransportError	include/thrift/c_glib/transport/thrift_transport.h	/^} ThriftTransportError;$/;"	t	typeref:enum:__anon15
+ThriftTransportError	include/thrift/c_glib/transport/thrift_transport.h	/^} ThriftTransportError;$/;"	t	typeref:enum:__anon13
 ThriftTransportFactory	include/thrift/c_glib/transport/thrift_transport_factory.h	/^typedef struct _ThriftTransportFactory ThriftTransportFactory;$/;"	t	typeref:struct:_ThriftTransportFactory
 ThriftTransportFactoryClass	include/thrift/c_glib/transport/thrift_transport_factory.h	/^typedef struct _ThriftTransportFactoryClass ThriftTransportFactoryClass;$/;"	t	typeref:struct:_ThriftTransportFactoryClass
-ThriftType	include/thrift/c_glib/protocol/thrift_protocol.h	/^} ThriftType;$/;"	t	typeref:enum:__anon10
+ThriftType	include/thrift/c_glib/protocol/thrift_protocol.h	/^} ThriftType;$/;"	t	typeref:enum:__anon9
 TimedOutException	include/thrift/concurrency/Exception.h	/^  TimedOutException():TException("TimedOutException"){};$/;"	f	class:apache::thrift::concurrency::TimedOutException
 TimedOutException	include/thrift/concurrency/Exception.h	/^  TimedOutException(const std::string& message ) :$/;"	f	class:apache::thrift::concurrency::TimedOutException
 TimedOutException	include/thrift/concurrency/Exception.h	/^class TimedOutException : public apache::thrift::TException {$/;"	c	namespace:apache::thrift::concurrency
@@ -2755,7 +2755,7 @@ addSnmpProcessInfo	src/Dial.cpp	/^RetCode::type DialClient::addSnmpProcessInfo(c
 addSnmpProcessInfo	src/server.cpp	/^RetCode::type DialHandler::addSnmpProcessInfo(const std::string& snmp, const std::string& processname)$/;"	f	class:DialHandler
 addTask	include/thrift/server/TNonblockingServer.h	/^  void addTask(boost::shared_ptr<Runnable> task) {$/;"	f	class:apache::thrift::server::TNonblockingServer
 add_node	clib/src/seg_tree.c	/^static void add_node(struct adjust_tree_param* param, uint start, uint end,$/;"	f	file:
-addr	clib/include/clib/ip.h	/^    } addr;$/;"	m	struct:ip_addr	typeref:union:ip_addr::__anon1
+addr	clib/include/clib/ip.h	/^    } addr;$/;"	m	struct:ip_addr	typeref:union:ip_addr::__anon2
 addr	include/dialrpc_types.h	/^  bool addr;$/;"	m	struct:rpc::dial::yamutech::com::_IpAddr__isset
 addr	include/dialrpc_types.h	/^  std::string addr;$/;"	m	class:rpc::dial::yamutech::com::IpAddr
 adjust_tree	clib/src/seg_tree.c	/^static void adjust_tree(tree_t *tree, tree_key_t* key, void *data,$/;"	f	file:
@@ -2995,9 +2995,9 @@ blocked	clib/src/process_info.c	/^    blocked,    \/\/ status          mask of b
 blocked	clib/src/process_info.c	/^    blocked[18],    \/\/ status          mask of blocked signals$/;"	m	struct:proc_t	file:
 body	clib/src/protocol.c	/^    buffer_t* body;$/;"	m	struct:_protocol_unit	file:
 bool	clib/include/clib/types.h	/^typedef int bool;$/;"	t
-boolValue	include/thrift/protocol/TCompactProtocol.h	/^    bool boolValue;$/;"	m	struct:apache::thrift::protocol::TCompactProtocolT::__anon17
-boolValue_	include/thrift/protocol/TCompactProtocol.h	/^  } boolValue_;$/;"	m	class:apache::thrift::protocol::TCompactProtocolT	typeref:struct:apache::thrift::protocol::TCompactProtocolT::__anon17
-booleanField_	include/thrift/protocol/TCompactProtocol.h	/^  } booleanField_;$/;"	m	class:apache::thrift::protocol::TCompactProtocolT	typeref:struct:apache::thrift::protocol::TCompactProtocolT::__anon16
+boolValue	include/thrift/protocol/TCompactProtocol.h	/^    bool boolValue;$/;"	m	struct:apache::thrift::protocol::TCompactProtocolT::__anon8
+boolValue_	include/thrift/protocol/TCompactProtocol.h	/^  } boolValue_;$/;"	m	class:apache::thrift::protocol::TCompactProtocolT	typeref:struct:apache::thrift::protocol::TCompactProtocolT::__anon8
+booleanField_	include/thrift/protocol/TCompactProtocol.h	/^  } booleanField_;$/;"	m	class:apache::thrift::protocol::TCompactProtocolT	typeref:struct:apache::thrift::protocol::TCompactProtocolT::__anon7
 borrow	include/thrift/transport/TBufferTransports.h	/^  const uint8_t* borrow(uint8_t* buf, uint32_t* len) {$/;"	f	class:apache::thrift::transport::TBufferBase
 borrow	include/thrift/transport/TShortReadTransport.h	/^  const uint8_t* borrow(uint8_t* buf, uint32_t* len) {$/;"	f	class:apache::thrift::transport::test::TShortReadTransport
 borrow	include/thrift/transport/TTransport.h	/^  const uint8_t* borrow(uint8_t* buf, uint32_t* len) {$/;"	f	class:apache::thrift::transport::TTransport
@@ -3047,7 +3047,7 @@ cache_size	clib/include/clib/list.h	/^    uint cache_size;$/;"	m	struct:_list
 cache_size	clib/src/memcache.c	/^    int cache_size;$/;"	m	struct:mem_cache	file:
 cached	clib/include/clib/system_stat.h	/^    uint cached;            \/\/cached(K)$/;"	m	struct:mem_stat
 cached	clib/include/clib/system_stat.h	/^    uint cached;$/;"	m	struct:disk_info
-cachedPeerAddr_	include/thrift/transport/TSocket.h	/^  } cachedPeerAddr_;$/;"	m	class:apache::thrift::transport::TSocket	typeref:union:apache::thrift::transport::TSocket::__anon18
+cachedPeerAddr_	include/thrift/transport/TSocket.h	/^  } cachedPeerAddr_;$/;"	m	class:apache::thrift::transport::TSocket	typeref:union:apache::thrift::transport::TSocket::__anon15
 cal_mask	src/icmp.cpp	/^uint32_t cal_mask(int val)$/;"	f
 calc_icmp_chksum	src/icmp.cpp	/^unsigned short calc_icmp_chksum(const void *pPacket, int iPktLen)$/;"	f
 calc_new_node	clib/src/seg_tree.c	/^static bool calc_new_node(void *key, void *value, void* user_data)$/;"	f	file:
@@ -3128,6 +3128,7 @@ config	include/conf.h	/^typedef struct config$/;"	s
 connMutex_	include/thrift/server/TNonblockingServer.h	/^  Mutex connMutex_;$/;"	m	class:apache::thrift::server::TNonblockingServer
 connTimeout_	include/thrift/transport/TSocket.h	/^  int connTimeout_;$/;"	m	class:apache::thrift::transport::TSocket
 conn_	include/thrift/async/TEvhttpClientChannel.h	/^  struct evhttp_connection* conn_;$/;"	m	class:apache::thrift::async::TEvhttpClientChannel	typeref:struct:apache::thrift::async::TEvhttpClientChannel::evhttp_connection
+connect_server	src/tcp.cpp	/^void connect_server(bool is_ipv6,const char*ip,const int port,int fd)$/;"	f
 connectionStackLimit_	include/thrift/server/TNonblockingServer.h	/^  size_t connectionStackLimit_;$/;"	m	class:apache::thrift::server::TNonblockingServer
 connectionStack_	include/thrift/server/TNonblockingServer.h	/^  std::stack<TConnection*> connectionStack_;$/;"	m	class:apache::thrift::server::TNonblockingServer
 consecutiveFailures_	include/thrift/transport/TSocketPool.h	/^  int consecutiveFailures_;$/;"	m	class:apache::thrift::transport::TSocketPoolServer
@@ -3167,8 +3168,8 @@ create	include/thrift/concurrency/FunctionRunner.h	/^  static boost::shared_ptr<
 createContext	include/thrift/server/TServer.h	/^  virtual void* createContext(boost::shared_ptr<TProtocol> input,$/;"	f	class:apache::thrift::server::TServerEventHandler
 create_default_log	clib/src/log.c	/^static void create_default_log()$/;"	f	file:
 create_http_send_arg	src/http.cpp	/^int create_http_send_arg(ev_t* ev,const char* policy,int* port,bool* https)$/;"	f
-create_raw_fd	src/icmp.cpp	/^int create_raw_fd()$/;"	f
-create_udp_fd	src/dial_server.cpp	/^int create_udp_fd()$/;"	f
+create_raw_fd	src/icmp.cpp	/^int create_raw_fd(bool is_ipv6)$/;"	f
+create_udp_fd	src/dial_server.cpp	/^int create_udp_fd(bool is_ipv6)$/;"	f
 cstime	clib/src/process_info.c	/^    cstime,     \/\/ stat            cumulative stime of process and reaped children$/;"	m	struct:proc_t	file:
 ctr	include/glog/logging.h	/^    int ctr() const { return ctr_; }$/;"	f	class:google::LogMessage::LogStream
 ctr_	include/glog/logging.h	/^    int ctr_;  \/\/ Counter hack (for the LOG_EVERY_X() macro)$/;"	m	class:google::LogMessage::LogStream
@@ -3561,8 +3562,8 @@ fd_	include/thrift/transport/TFDTransport.h	/^  int fd_;$/;"	m	class:apache::thr
 fd_	include/thrift/transport/TFileTransport.h	/^  int fd_;$/;"	m	class:apache::thrift::transport::TFileTransport
 fgid	clib/src/process_info.c	/^        fuid, fgid,     \/\/ status          fs (used for file access only)$/;"	m	struct:proc_t	file:
 fgroup	clib/src/process_info.c	/^        fgroup[P_G_SZ], \/\/ status          filesystem group name$/;"	m	struct:proc_t	file:
-fieldId	include/thrift/protocol/TCompactProtocol.h	/^    int16_t fieldId;$/;"	m	struct:apache::thrift::protocol::TCompactProtocolT::__anon16
-fieldType	include/thrift/protocol/TCompactProtocol.h	/^    TType fieldType;$/;"	m	struct:apache::thrift::protocol::TCompactProtocolT::__anon16
+fieldId	include/thrift/protocol/TCompactProtocol.h	/^    int16_t fieldId;$/;"	m	struct:apache::thrift::protocol::TCompactProtocolT::__anon7
+fieldType	include/thrift/protocol/TCompactProtocol.h	/^    TType fieldType;$/;"	m	struct:apache::thrift::protocol::TCompactProtocolT::__anon7
 file	clib/src/memleak.c	/^    char file[NAME_MAX];$/;"	m	struct:mem_leak	file:
 file_appendline	clib/src/file.c	/^int file_appendline(const char *filename, const char* line)$/;"	f
 file_clear	clib/src/file.c	/^int file_clear(const char *filename)$/;"	f
@@ -3620,6 +3621,7 @@ g_common_tid	src/work.cpp	/^pthread_t g_common_tid;$/;"	v
 g_default_log	clib/src/log.c	/^log_t* g_default_log = NULL;$/;"	v
 g_dialrpc_constants	src/dialrpc_constants.cpp	/^const dialrpcConstants g_dialrpc_constants;$/;"	m	namespace:rpc::dial::yamutech::com	file:
 g_dns_fd	src/dial_server.cpp	/^int g_dns_fd = 0;$/;"	v
+g_dnsv6_fd	src/dial_server.cpp	/^int g_dnsv6_fd = 0;$/;"	v
 g_epoll_common_fd	src/epoll.cpp	/^int g_epoll_common_fd = 0;$/;"	v
 g_epoll_common_tid	src/work.cpp	/^pthread_t g_epoll_common_tid;$/;"	v
 g_epoll_https_fd	src/epoll.cpp	/^int g_epoll_https_fd = 0;$/;"	v
@@ -3627,6 +3629,8 @@ g_epoll_https_tid	src/work.cpp	/^pthread_t g_epoll_https_tid;$/;"	v
 g_icmp_check_tid	src/work.cpp	/^pthread_t g_icmp_check_tid;$/;"	v
 g_icmp_recv_tid	src/work.cpp	/^pthread_t g_icmp_recv_tid;$/;"	v
 g_icmp_send_fd	src/icmp.cpp	/^int g_icmp_send_fd = 0;$/;"	v
+g_icmpv6_recv_tid	src/work.cpp	/^pthread_t g_icmpv6_recv_tid;$/;"	v
+g_icmpv6_send_fd	src/icmp.cpp	/^int g_icmpv6_send_fd = 0;$/;"	v
 g_ip_map_tid	src/work.cpp	/^pthread_t g_ip_map_tid;$/;"	v
 g_pid	src/icmp.cpp	/^uint16_t g_pid = 0;$/;"	v
 g_pid_arr	clib/src/daemon.c	/^static int_array_t *g_pid_arr;$/;"	v	file:
@@ -3797,7 +3801,7 @@ handle_dns_dial	src/dial_server.cpp	/^int handle_dns_dial(const char* srv_addr)$
 handle_ftp_task	src/mysql_ftp.cpp	/^void handle_ftp_task(const char*ip,const int port,const char*policy,enum policy_type type)$/;"	f
 handle_http_server_dial	src/dial_server.cpp	/^int handle_http_server_dial(const char* ip)$/;"	f
 handle_http_task	src/http.cpp	/^void handle_http_task(const char*ip,const char*policy,enum policy_type type)$/;"	f
-handle_icmp_task	src/icmp.cpp	/^void handle_icmp_task(const char* ip)$/;"	f
+handle_icmp_task	src/icmp.cpp	/^int handle_icmp_task(const char* ip)$/;"	f
 handle_snmp_dialing	src/snmp.cpp	/^int handle_snmp_dialing(const char*ip,const char* user,const char* pass,$/;"	f
 handle_snmp_task	src/snmp.cpp	/^void handle_snmp_task(const char*ip,const int port,const char*policy,enum policy_type type)$/;"	f
 handle_tcp_port_task	src/tcp.cpp	/^void handle_tcp_port_task(const char*ip,const int port,const char*policy,enum policy_type type)$/;"	f
@@ -3807,11 +3811,11 @@ handlerFactory_	include/Agent.h	/^  ::boost::shared_ptr< AgentIfFactory > handle
 handlerFactory_	include/Dial.h	/^  ::boost::shared_ptr< DialIfFactory > handlerFactory_;$/;"	m	class:rpc::dial::yamutech::com::DialProcessorFactory
 handlerFactory_	include/thrift/TProcessor.h	/^   boost::shared_ptr<HandlerFactory_> handlerFactory_;$/;"	m	class:apache::thrift::ReleaseHandler
 handler_	include/thrift/TProcessor.h	/^  apache::thrift::TProcessorEventHandler* handler_;$/;"	m	class:apache::thrift::TProcessorContextFreer
-hasBoolValue	include/thrift/protocol/TCompactProtocol.h	/^    bool hasBoolValue;$/;"	m	struct:apache::thrift::protocol::TCompactProtocolT::__anon17
+hasBoolValue	include/thrift/protocol/TCompactProtocol.h	/^    bool hasBoolValue;$/;"	m	struct:apache::thrift::protocol::TCompactProtocolT::__anon8
 hasData_	include/thrift/protocol/TJSONProtocol.h	/^    bool hasData_;$/;"	m	class:apache::thrift::protocol::TJSONProtocol::LookaheadReader
 hasKey	src/inifile.cpp	/^bool IniFile::hasKey(const string &section, const string &key)$/;"	f	class:inifile::IniFile
 hasSection	src/inifile.cpp	/^bool IniFile::hasSection(const string &section)$/;"	f	class:inifile::IniFile
-hash	clib/include/clib/ip_hash.h	/^    void *hash;$/;"	m	struct:__anon2
+hash	clib/include/clib/ip_hash.h	/^    void *hash;$/;"	m	struct:__anon1
 hash	clib/src/ip_hash.c	/^    void *hash;$/;"	m	struct:ip_hash_priv_t	file:
 hash_func	clib/include/clib/types.h	/^typedef uint (*hash_func)(const void *key);$/;"	t
 hash_func	clib/src/hash_table.c	/^    hash_func hash_func;$/;"	m	struct:_hash_table	file:
@@ -3893,6 +3897,7 @@ https_ev_del	src/epoll.cpp	/^void https_ev_del(ev_t*ev)$/;"	f
 iPktLen	src/icmp.cpp	/^int iPktLen = 0;$/;"	v
 icmp_check_thread	src/icmp.cpp	/^void *icmp_check_thread(void*arg)$/;"	f
 icmp_recv_thread	src/icmp.cpp	/^void *icmp_recv_thread(void*arg)$/;"	f
+icmpv6_recv_thread	src/icmp.cpp	/^void *icmpv6_recv_thread(void*arg)$/;"	f
 id	clib/include/clib/dns.h	/^    uint16_t id; \/*%< query identification number *\/$/;"	m	struct:dnshdr
 id	include/Dial.h	/^  bool id;$/;"	m	struct:rpc::dial::yamutech::com::_Dial_delDcInfo_args__isset
 id	include/Dial.h	/^  const std::string* id;$/;"	m	class:rpc::dial::yamutech::com::Dial_delDcInfo_pargs
@@ -4056,7 +4061,7 @@ ip_hash_init	clib/src/ip_hash.c	/^ip_hash_t * ip_hash_init()$/;"	f
 ip_hash_priv_t	clib/src/ip_hash.c	/^typedef struct ip_hash_priv_t{$/;"	s	file:
 ip_hash_priv_t	clib/src/ip_hash.c	/^}ip_hash_priv_t;$/;"	t	typeref:struct:ip_hash_priv_t	file:
 ip_hash_search	clib/src/ip_hash.c	/^list_t * ip_hash_search(ip_hash_t *ip_hash, uint ip)$/;"	f
-ip_hash_t	clib/include/clib/ip_hash.h	/^}ip_hash_t;$/;"	t	typeref:struct:__anon2
+ip_hash_t	clib/include/clib/ip_hash.h	/^}ip_hash_t;$/;"	t	typeref:struct:__anon1
 ip_hash_uninit	clib/src/ip_hash.c	/^void ip_hash_uninit(ip_hash_t *ip_hash)$/;"	f
 ip_map	src/server.cpp	/^map<string,ip_node_t> ip_map;$/;"	v
 ip_map_lock	src/server.cpp	/^pthread_rwlock_t ip_map_lock;$/;"	v
@@ -4082,6 +4087,7 @@ ipsec	include/Dial.h	/^  const SysIpSec* ipsec;$/;"	m	class:rpc::dial::yamutech:
 ipsec	include/dialrpc_types.h	/^  IpsecAddress ipsec;$/;"	m	class:rpc::dial::yamutech::com::SysIpSec
 ipsec	include/dialrpc_types.h	/^  bool ipsec;$/;"	m	struct:rpc::dial::yamutech::com::_SysIpSec__isset
 ipsec	include/server.h	/^		SysIpSec ipsec;$/;"	m	struct:ipsec_node
+ipsec_clear_lock	src/icmp.cpp	/^pthread_rwlock_t ipsec_clear_lock;$/;"	v
 ipsec_map	src/server.cpp	/^map<string,ipsec_node_t> ipsec_map;$/;"	v
 ipsec_node	include/server.h	/^typedef struct ipsec_node$/;"	s
 ipsec_node_t	include/server.h	/^}ipsec_node_t;$/;"	t	typeref:struct:ipsec_node
@@ -4092,11 +4098,11 @@ ipsecid	include/Agent.h	/^  std::string ipsecid;$/;"	m	class:rpc::dial::yamutech
 ipsecid	include/Dial.h	/^  bool ipsecid;$/;"	m	struct:rpc::dial::yamutech::com::_Dial_delIpSec_args__isset
 ipsecid	include/Dial.h	/^  const std::string* ipsecid;$/;"	m	class:rpc::dial::yamutech::com::Dial_delIpSec_pargs
 ipsecid	include/Dial.h	/^  std::string ipsecid;$/;"	m	class:rpc::dial::yamutech::com::Dial_delIpSec_args
-ipv4	clib/include/clib/ip.h	/^        uint32_t ipv4;$/;"	m	union:ip_addr::__anon1
-ipv4	include/thrift/transport/TSocket.h	/^    sockaddr_in ipv4;$/;"	m	union:apache::thrift::transport::TSocket::__anon18
+ipv4	clib/include/clib/ip.h	/^        uint32_t ipv4;$/;"	m	union:ip_addr::__anon2
+ipv4	include/thrift/transport/TSocket.h	/^    sockaddr_in ipv4;$/;"	m	union:apache::thrift::transport::TSocket::__anon15
 ipv4_to_str	clib/src/ip.c	/^uint ipv4_to_str(uint32_t ipv4, char *dst, uint len)$/;"	f
-ipv6	clib/include/clib/ip.h	/^        struct in6_addr ipv6;$/;"	m	union:ip_addr::__anon1	typeref:struct:ip_addr::__anon1::in6_addr
-ipv6	include/thrift/transport/TSocket.h	/^    sockaddr_in6 ipv6;$/;"	m	union:apache::thrift::transport::TSocket::__anon18
+ipv6	clib/include/clib/ip.h	/^        struct in6_addr ipv6;$/;"	m	union:ip_addr::__anon2	typeref:struct:ip_addr::__anon2::in6_addr
+ipv6	include/thrift/transport/TSocket.h	/^    sockaddr_in6 ipv6;$/;"	m	union:apache::thrift::transport::TSocket::__anon15
 isAnonymous	include/thrift/transport/TPipe.h	/^  bool isAnonymous;$/;"	m	class:apache::thrift::transport::TPipe
 isAnonymous	include/thrift/transport/TPipeServer.h	/^  bool isAnonymous;$/;"	m	class:apache::thrift::transport::TPipeServer
 isComment	src/inifile.cpp	/^bool IniFile::isComment(const string &str)$/;"	f	class:inifile::IniFile
@@ -4337,7 +4343,7 @@ message	include/dialrpc_types.h	/^  std::string message;$/;"	m	class:rpc::dial::
 message	include/thrift/c_glib/thrift_application_exception.h	/^  gchar *message;$/;"	m	struct:_ThriftApplicationException
 message_	include/thrift/Thrift.h	/^  std::string message_;$/;"	m	class:apache::thrift::TException
 message_buffer_	include/glog/logging.h	/^  char message_buffer_[2];$/;"	m	class:google::NullStream
-metas	include/thrift/TReflectionLocal.h	/^      FieldMeta* metas;$/;"	m	struct:apache::thrift::reflection::local::TypeSpec::__anon7::__anon8
+metas	include/thrift/TReflectionLocal.h	/^      FieldMeta* metas;$/;"	m	struct:apache::thrift::reflection::local::TypeSpec::__anon16::__anon17
 method	include/dialrpc_types.h	/^  DialMethod::type method;$/;"	m	class:rpc::dial::yamutech::com::HealthPolicyInfo
 method	include/dialrpc_types.h	/^  bool method;$/;"	m	struct:rpc::dial::yamutech::com::_HealthPolicyInfo__isset
 method	include/mysql.h	/^		char method[128];$/;"	m	struct:login_node
@@ -4383,7 +4389,7 @@ name	include/dialrpc_types.h	/^  std::string name;$/;"	m	class:rpc::dial::yamute
 name	include/dialrpc_types.h	/^  std::string name;$/;"	m	class:rpc::dial::yamutech::com::SysIpSec
 name	include/inifile.h	/^    string name;$/;"	m	struct:inifile::IniSection
 name	include/snmp.h	/^		char name[32];$/;"	m	struct:arg_name
-name	include/thrift/protocol/TCompactProtocol.h	/^    const char* name;$/;"	m	struct:apache::thrift::protocol::TCompactProtocolT::__anon16
+name	include/thrift/protocol/TCompactProtocol.h	/^    const char* name;$/;"	m	struct:apache::thrift::protocol::TCompactProtocolT::__anon7
 names_	include/thrift/Thrift.h	/^  const char** names_;$/;"	m	class:apache::thrift::TEnumIterator
 net_close	src/ftp.cpp	148;"	d	file:
 net_close	src/ftp.cpp	152;"	d	file:
@@ -4393,11 +4399,10 @@ net_write	src/ftp.cpp	/^int net_write(int fd, const char *buf, size_t len)$/;"	f
 net_write	src/ftp.cpp	151;"	d	file:
 netbuf	include/ftp.h	/^typedef struct NetBuf netbuf;$/;"	t	typeref:struct:NetBuf
 new_icmp_echo	src/icmp.cpp	/^int new_icmp_echo(const int iPacketNum, unsigned char *aucSendBuf,const int iDataLen)$/;"	f
-new_raw_block_socket	src/icmp.cpp	/^int new_raw_block_socket()$/;"	f
 new_raw_socket	src/udp.cpp	/^int new_raw_socket()$/;"	f
-new_tcp_block_fd	src/dial_server.cpp	/^int new_tcp_block_fd()$/;"	f
+new_tcp_block_fd	src/dial_server.cpp	/^int new_tcp_block_fd(bool is_ipv6)$/;"	f
 new_udp_block_fd	src/udp.cpp	/^int new_udp_block_fd()$/;"	f
-new_unblock_tcp_socket	src/tcp.cpp	/^int new_unblock_tcp_socket()$/;"	f
+new_unblock_tcp_socket	src/tcp.cpp	/^int new_unblock_tcp_socket(bool is_ipv6)$/;"	f
 next	clib/include/clib/list.h	/^	 struct list_node *next;$/;"	m	struct:list_node	typeref:struct:list_node::list_node
 next	clib/src/ip_hash.c	/^    struct mapping_table *next;$/;"	m	struct:mapping_table	typeref:struct:mapping_table::mapping_table	file:
 next	clib/src/memcache.c	/^    struct mem_cache *next;$/;"	m	struct:mem_cache	typeref:struct:mem_cache::mem_cache	file:
@@ -4786,7 +4791,6 @@ parent	include/thrift/c_glib/transport/thrift_transport.h	/^  GObjectClass paren
 parent	include/thrift/c_glib/transport/thrift_transport_factory.h	/^  GObject parent;$/;"	m	struct:_ThriftTransportFactory
 parent	include/thrift/c_glib/transport/thrift_transport_factory.h	/^  GObjectClass parent;$/;"	m	struct:_ThriftTransportFactoryClass
 parse	src/inifile.cpp	/^bool IniFile::parse(const string &content, string &key, string &value, char c\/*= '='*\/)$/;"	f	class:inifile::IniFile
-parseIcmp	src/icmp.cpp	/^int parseIcmp(unsigned char *pRecvBuf, const int iLen)$/;"	f
 parse_arg	src/common.cpp	/^bool parse_arg(int argc,char** argv)$/;"	f
 parse_http_policy_arg	src/http.cpp	/^int parse_http_policy_arg(ev_t* ev,const char* policy,int* port,bool* https,enum policy_type type)$/;"	f
 partition_number	clib/include/clib/system_stat.h	/^    uint partition_number;              \/\/分区数$/;"	m	struct:disk_info
@@ -5736,7 +5740,7 @@ socket_set_recv_buf	clib/src/socket.c	/^int socket_set_recv_buf(int fd, uint siz
 socket_set_send_buf	clib/src/socket.c	/^int socket_set_send_buf(int fd, uint size)$/;"	f
 socket_wait	src/ftp.cpp	/^static int socket_wait(netbuf *ctl)$/;"	f	file:
 source_	include/thrift/protocol/TProtocolTap.h	/^  boost::shared_ptr<TProtocol> source_;$/;"	m	class:apache::thrift::protocol::TProtocolTap
-specs	include/thrift/TReflectionLocal.h	/^      TypeSpec** specs;$/;"	m	struct:apache::thrift::reflection::local::TypeSpec::__anon7::__anon8
+specs	include/thrift/TReflectionLocal.h	/^      TypeSpec** specs;$/;"	m	struct:apache::thrift::reflection::local::TypeSpec::__anon16::__anon17
 speed	include/dialrpc_types.h	/^  bool speed;$/;"	m	struct:rpc::dial::yamutech::com::_InterfaceInfo__isset
 speed	include/dialrpc_types.h	/^  int64_t speed;$/;"	m	class:rpc::dial::yamutech::com::InterfaceInfo
 sql	include/epoll.h	/^		login_t* sql;$/;"	m	struct:common_event
@@ -5852,8 +5856,8 @@ subdirs	clib/src/file_system.c	/^int subdirs(const char* dir, str_array_t *sub_d
 subdirs_order_by_name	clib/src/file_system.c	/^int subdirs_order_by_name(const char* dir, str_array_t *sub_dirs,$/;"	f
 subfiles	clib/src/file_system.c	/^int subfiles(const char* dir, str_array_t *files, file_filter filter)$/;"	f
 subfiles_order_by_name	clib/src/file_system.c	/^int subfiles_order_by_name(const char* dir, str_array_t *files,$/;"	f
-subtype1	include/thrift/TReflectionLocal.h	/^      TypeSpec *subtype1;$/;"	m	struct:apache::thrift::reflection::local::TypeSpec::__anon7::__anon9
-subtype2	include/thrift/TReflectionLocal.h	/^      TypeSpec *subtype2;$/;"	m	struct:apache::thrift::reflection::local::TypeSpec::__anon7::__anon9
+subtype1	include/thrift/TReflectionLocal.h	/^      TypeSpec *subtype1;$/;"	m	struct:apache::thrift::reflection::local::TypeSpec::__anon16::__anon18
+subtype2	include/thrift/TReflectionLocal.h	/^      TypeSpec *subtype2;$/;"	m	struct:apache::thrift::reflection::local::TypeSpec::__anon16::__anon18
 success	include/Agent.h	/^  RetCode::type success;$/;"	m	class:rpc::dial::yamutech::com::Agent_registerModule_result
 success	include/Agent.h	/^  RetCode::type success;$/;"	m	class:rpc::dial::yamutech::com::Agent_updateDcStatus_result
 success	include/Agent.h	/^  RetCode::type success;$/;"	m	class:rpc::dial::yamutech::com::Agent_updateHealthStatus_result
@@ -6057,7 +6061,7 @@ tasksMonitor_	include/thrift/server/TThreadedServer.h	/^  Monitor tasksMonitor_;
 tasks_	include/thrift/server/TThreadedServer.h	/^  std::set<Task*> tasks_;$/;"	m	class:apache::thrift::server::TThreadedServer
 tc	clib/include/clib/dns.h	/^    unsigned tc :1; \/*%< truncated message *\/$/;"	m	struct:dnshdr
 tc	clib/include/clib/dns.h	/^    unsigned tc :1; \/*%< truncated message. 如果应答过大, udp 放不下, 就会被 truncate *\/$/;"	m	struct:dnshdr
-tcontainer	include/thrift/TReflectionLocal.h	/^    } tcontainer;$/;"	m	union:apache::thrift::reflection::local::TypeSpec::__anon7	typeref:struct:apache::thrift::reflection::local::TypeSpec::__anon7::__anon9
+tcontainer	include/thrift/TReflectionLocal.h	/^    } tcontainer;$/;"	m	union:apache::thrift::reflection::local::TypeSpec::__anon16	typeref:struct:apache::thrift::reflection::local::TypeSpec::__anon16::__anon18
 tcpRecvBuffer_	include/thrift/transport/TServerSocket.h	/^  int tcpRecvBuffer_;$/;"	m	class:apache::thrift::transport::TServerSocket
 tcpSendBuffer_	include/thrift/transport/TServerSocket.h	/^  int tcpSendBuffer_;$/;"	m	class:apache::thrift::transport::TServerSocket
 tcp_epoll_add	src/epoll.cpp	/^int tcp_epoll_add(int fd,ev_t* my_ev)$/;"	f
@@ -6347,7 +6351,7 @@ trimright	src/inifile.cpp	/^void IniFile::trimright(string &str, char c\/*=' '*\
 trs	clib/src/process_info.c	/^    trs,        \/\/ statm           text (exe) resident set (as # pages)$/;"	m	struct:proc_t	file:
 true	clib/include/clib/types.h	25;"	d
 ts_stack_	include/thrift/protocol/TDenseProtocol.h	/^  std::vector<TypeSpec*> ts_stack_;   \/\/ TypeSpec stack.$/;"	m	class:apache::thrift::protocol::TDenseProtocol
-tstruct	include/thrift/TReflectionLocal.h	/^    } tstruct;$/;"	m	union:apache::thrift::reflection::local::TypeSpec::__anon7	typeref:struct:apache::thrift::reflection::local::TypeSpec::__anon7::__anon8
+tstruct	include/thrift/TReflectionLocal.h	/^    } tstruct;$/;"	m	union:apache::thrift::reflection::local::TypeSpec::__anon16	typeref:struct:apache::thrift::reflection::local::TypeSpec::__anon16::__anon17
 ttl	include/dialrpc_types.h	/^  bool ttl;$/;"	m	struct:rpc::dial::yamutech::com::_DialRecord__isset
 ttl	include/dialrpc_types.h	/^  int32_t ttl;$/;"	m	class:rpc::dial::yamutech::com::DialRecord
 tty	clib/src/process_info.c	/^    tty,        \/\/ stat            full device number of controlling terminal$/;"	m	struct:proc_t	file:

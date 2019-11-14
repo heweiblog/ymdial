@@ -22,10 +22,19 @@
 #include "http.h"
 
 int g_dns_fd = 0;
+int g_dnsv6_fd = 0;
 
-int new_tcp_block_fd()
+int new_tcp_block_fd(bool is_ipv6)
 {
-		int fd = socket(AF_INET, SOCK_STREAM, 0);
+		int fd = 0;
+		if(is_ipv6)
+		{
+				fd = socket(AF_INET6, SOCK_STREAM, 0);
+		}
+		else
+		{
+				fd = socket(AF_INET, SOCK_STREAM, 0);
+		}
 		if(fd < 0)
 		{
 				return -1;
@@ -55,8 +64,14 @@ int new_tcp_block_fd()
 
 int handle_http_server_dial(const char* ip)
 {
-		int fd = new_tcp_block_fd();
-		if(fd < 0)
+		int rtn = 0;
+		bool is_ipv6 = false;
+		if(strstr(ip,"::"))
+		{
+				is_ipv6 = true;
+		}
+		int fd = new_tcp_block_fd(is_ipv6);
+		if(fd <= 0)
 		{
 				LOG(ERROR)<<"create tcp block fd failed";
 				return -1;
@@ -65,12 +80,24 @@ int handle_http_server_dial(const char* ip)
 		char send_buf[512] = {'\0'};
 		sprintf(send_buf,http_get,"/",ip);
 
-		struct sockaddr_in dest;
-		dest.sin_family = AF_INET;
-		dest.sin_port = htons(HTTP_PORT);
-		inet_pton(AF_INET,ip,&dest.sin_addr);
+		if(is_ipv6)
+		{
+				struct sockaddr_in6 dest;
+				dest.sin6_family = AF_INET6;
+				dest.sin6_port = htons(HTTP_PORT);
+				inet_pton(AF_INET6,ip,&dest.sin6_addr);
 
-		int rtn = connect(fd,(struct sockaddr*)&dest,sizeof(sockaddr_in));
+				rtn = connect(fd,(struct sockaddr*)&dest,sizeof(sockaddr_in6));
+		}
+		else
+		{
+				struct sockaddr_in dest;
+				dest.sin_family = AF_INET;
+				dest.sin_port = htons(HTTP_PORT);
+				inet_pton(AF_INET,ip,&dest.sin_addr);
+
+				rtn = connect(fd,(struct sockaddr*)&dest,sizeof(sockaddr_in));
+		}
 		if(rtn < 0)
 		{
 				close(fd);
@@ -103,13 +130,20 @@ int handle_http_server_dial(const char* ip)
 		return ((t_end.tv_sec * 1000*1000 + t_end.tv_usec) - (t_start.tv_sec * 1000*1000 + t_start.tv_usec));
 }
 
-int create_udp_fd()
+int create_udp_fd(bool is_ipv6)
 {       
 		int rtn = 0,fd = 0;
 		struct timeval timeout;
-
-		fd = socket(AF_INET,SOCK_DGRAM,0);
-		if(fd < 0)
+		
+		if(is_ipv6)
+		{
+				fd = socket(AF_INET6,SOCK_DGRAM,0);
+		}
+		else
+		{
+				fd = socket(AF_INET,SOCK_DGRAM,0);
+		}
+		if(fd <= 0)
 		{       
 				return -1;
 		}
@@ -138,33 +172,49 @@ int create_udp_fd()
 
 int request_dns_server(const char*srv_addr)
 {
-		struct sockaddr_in addr;
-		addr.sin_family = AF_INET;
-		addr.sin_port = htons(NS_DEFAULTPORT);
-		inet_pton(AF_INET,srv_addr, &addr.sin_addr.s_addr);
-
+		struct timeval t_start,t_end;
 		u_char msg[NS_PACKETSZ] = {'\0'};
+		u_char answer[NS_PACKETSZ] = {'\0'};
 		int msglen = res_mkquery(QUERY,cfg.dname,ns_c_in,ns_t_a,NULL,0,NULL,msg,NS_PACKETSZ);
 
-		int rtn = sendto(g_dns_fd,msg,msglen,0,(const struct sockaddr *)&addr,sizeof(addr));
-		if(rtn < 0)
-		{   
-				LOG(ERROR)<<"send dns msg failed dns_srv="<<srv_addr;
-				return cfg.timeout;
-		}   
+		if(strstr(srv_addr,"::"))
+		{
+				struct sockaddr_in6 addr;
+				addr.sin6_family = AF_INET6;
+				addr.sin6_port = htons(NS_DEFAULTPORT);
+				inet_pton(AF_INET6,srv_addr,&addr.sin6_addr);
+				
+				int rtn = sendto(g_dnsv6_fd,msg,msglen,0,(const struct sockaddr *)&addr,sizeof(addr));
+				if(rtn < 0)
+				{   
+						LOG(ERROR)<<"send dns msg failed dns_srv="<<srv_addr;
+						return cfg.timeout;
+				}   
 
-		u_char answer[NS_PACKETSZ] = {'\0'};
+				gettimeofday(&t_start,NULL);
+				recvfrom(g_dnsv6_fd,answer,NS_PACKETSZ,0,NULL,NULL);
+		}
+		else
+		{
+				struct sockaddr_in addr;
+				addr.sin_family = AF_INET;
+				addr.sin_port = htons(NS_DEFAULTPORT);
+				inet_pton(AF_INET,srv_addr, &addr.sin_addr.s_addr);
 
-		struct timeval t_start;
-		struct timeval t_end;
+				int rtn = sendto(g_dns_fd,msg,msglen,0,(const struct sockaddr *)&addr,sizeof(addr));
+				if(rtn < 0)
+				{   
+						LOG(ERROR)<<"send dns msg failed dns_srv="<<srv_addr;
+						return cfg.timeout;
+				}   
 
-		gettimeofday(&t_start,NULL);
-
-		recvfrom(g_dns_fd,answer,NS_PACKETSZ,0,NULL,NULL);
-
+				gettimeofday(&t_start,NULL);
+				recvfrom(g_dns_fd,answer,NS_PACKETSZ,0,NULL,NULL);
+		}
+		
 		gettimeofday(&t_end,NULL);
-
 		return ((t_end.tv_sec * 1000*1000 + t_end.tv_usec) - (t_start.tv_sec * 1000*1000 + t_start.tv_usec));
+
 }
 
 int handle_dns_dial(const char* srv_addr)
@@ -206,14 +256,20 @@ void *server_dial_thread(void*arg)
 		map<string,server_node_t>::iterator iter;
 		vector<string>::iterator policy_iter;
 
-		g_dns_fd = create_udp_fd();
-		if(g_dns_fd < 0)
+		g_dns_fd = create_udp_fd(false);
+		if(g_dns_fd <= 0)
 		{
 				LOG(WARNING)<<"create g_dns_fd failed";
 				exit_process();
 		}
+		g_dnsv6_fd = create_udp_fd(true);
+		if(g_dnsv6_fd <= 0)
+		{
+				LOG(WARNING)<<"create g_dnsv6_fd failed";
+				exit_process();
+		}
 
-		LOG(INFO)<<"udp_dns_fd="<<g_dns_fd;
+		LOG(INFO)<<"udp_dns_fd="<<g_dns_fd<<",udp_dnsv6_fd="<<g_dnsv6_fd;
 
 		DialServerResult server_result;
 

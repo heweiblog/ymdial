@@ -218,7 +218,12 @@ int create_http_send_arg(ev_t* ev,const char* policy,int* port,bool* https)
 
 void handle_http_task(const char*ip,const char*policy,enum policy_type type)
 {
-		int fd = new_unblock_tcp_socket();
+		bool is_ipv6 = false;
+		if(strstr(ip,"::"))
+		{
+				is_ipv6 = true;
+		}
+		int fd = new_unblock_tcp_socket(is_ipv6);
 		if(fd < 0)
 		{
 				LOG(WARNING)<<"create unblock tcp fd failed";
@@ -267,12 +272,7 @@ void handle_http_task(const char*ip,const char*policy,enum policy_type type)
 				}
 		}
 
-		struct sockaddr_in dest;
-		dest.sin_family = AF_INET;
-		dest.sin_port = htons(port);
-		inet_pton(AF_INET,ip,&dest.sin_addr);
-
-		connect(fd,(struct sockaddr*)&dest,sizeof(sockaddr_in));
+		connect_server(is_ipv6,ip,port,fd);
 }
 
 

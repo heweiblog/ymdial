@@ -38,19 +38,11 @@ case "$1" in
 		echo -n $"Shutting down $PROG: "
 		if [ -f $pidfile ]
 		then
-			echo "$(pgrep ymdial|head -2)" > $kill_pid
-			for pid in `cat $kill_pid`
-			do
-				kill -9 $pid
-			done
+			killall -9 ymdial
 			RETVAR=$?
 			rm -f $pidfile
 		else
-			echo "$(pgrep ymdial|head -2)" > $kill_pid
-			for pid in `cat $kill_pid`
-			do
-				kill -9 $pid
-			done
+			killall -9 ymdial
 			RETVAR=$?
 		fi
 		[ $RETVAR -ne 0 ] && exit 6

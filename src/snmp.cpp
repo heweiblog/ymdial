@@ -886,6 +886,7 @@ int get_mactable(snmp_node_t* snmp_node,vector<InterfaceInfo> & eth,vector<MacTa
 
 		int rtn = get_mactable_outindex(snmp_node,eth,mac_table);
 
+		free(cmd_res);
 		return rtn;
 }
 
@@ -1192,8 +1193,9 @@ void* snmp_work_thread(void * arg)
 		extern bool client_connecting_flag;
 		extern int 	primary_flag;	
 		snmp_node_t * snmp_node = (snmp_node_t*)arg;
-		int i = 0,eth_num = 0,res = 0,route_size = 0;
+		int i = 0,eth_num = 0,res = 0,route_size = 0,t_tmp = 0;
 		int64_t max_int = 0xffffffff,outoctets = 0,inoctets = 0;
+		time_t t_start = 0,t_end = 0;
 
 		InterfaceInfo tmp_eth;
 		vector<InterfaceInfo> eth;	
@@ -1223,23 +1225,43 @@ void* snmp_work_thread(void * arg)
 				{
 						eth.resize(eth_num,tmp_eth);	
 						eth_traffic.resize(eth_num,tmp_eth_traffic);	
+						res = get_interface_info(snmp_node,eth_num,eth);
+						if(res < 0)
+						{
+								LOG(ERROR)<<"get_interface_info error snmp_ip="<<snmp_node->snmp.ip.addr;
+						}
+						else
+						{
+								update_snmp_info(snmp_node->snmp.name,INTERFACE_BASE,&eth);
+								for(i = 0 ; i < eth_num ; i++)
+								{
+										LOG(INFO)<<snmp_node->snmp.ip.addr<<":index="<<eth[i].index<<",descr="<<eth[i].descr<<",physaddress="<<eth[i].physaddress<<",type="<<eth[i].type<<",mtu="<<eth[i].mtu<<",status="<<eth[i].status<<",speed="<<eth[i].speed;
+								}
+						}
 				}
 				else
 				{
-						eth.assign(eth_num,tmp_eth);	
+						//eth.assign(eth_num,tmp_eth);	
 						eth_traffic.assign(eth_num,tmp_eth_traffic);
 				}
-				res = get_interface_info(snmp_node,eth_num,eth);
+
+				t_start = time(NULL);
+				res = get_interface_traffic(snmp_node,eth_traffic,eth_num);
 				if(res < 0)
 				{
-						LOG(ERROR)<<"get_interface_info error snmp_ip="<<snmp_node->snmp.ip.addr;
+						LOG(ERROR)<<"get_interface_traffic error snmp_ip="<<snmp_node->snmp.ip.addr;
 				}
 				else
 				{
-						update_snmp_info(snmp_node->snmp.name,INTERFACE_BASE,&eth);
 						for(i = 0 ; i < eth_num ; i++)
 						{
-								LOG(INFO)<<snmp_node->snmp.ip.addr<<":index="<<eth[i].index<<",descr="<<eth[i].descr<<",physaddress="<<eth[i].physaddress<<",type="<<eth[i].type<<",mtu="<<eth[i].mtu<<",status="<<eth[i].status<<",speed="<<eth[i].speed;
+								eth_traffic[i].index = eth[i].index;
+						}
+						update_snmp_info(snmp_node->snmp.name,INTERFACE_TRAFFIC,&eth_traffic);
+
+						for(i = 0 ; i < eth_num ; i++)
+						{
+								LOG(INFO)<<snmp_node->snmp.ip.addr.c_str()<<":index="<<eth_traffic[i].index<<",out="<<eth_traffic[i].outoctets<<",in="<<eth_traffic[i].inoctets;
 						}
 				}
 
@@ -1254,11 +1276,12 @@ void* snmp_work_thread(void * arg)
 						update_snmp_info(snmp_node->snmp.name,MAC_TABLE,&mac_table);
 						for(i = 0 ; i < (int)mac_table.size() ; i++)
 						{
-								LOG(INFO)<<snmp_node->snmp.ip.addr<<"-MacTable:mac="<<mac_table[i].macaddress<<"index="<<mac_table[i].index<<"port="<<mac_table[i].portname;
+								LOG(INFO)<<snmp_node->snmp.ip.addr<<"-MacTable:mac="<<mac_table[i].macaddress<<",index="<<mac_table[i].index<<",port="<<mac_table[i].portname;
 						}
 				}
 
 
+				/*
 				arp_map.clear();
 				res = get_arp_map(snmp_node,arp_map);
 				if(res < 0)
@@ -1273,7 +1296,6 @@ void* snmp_work_thread(void * arg)
 								LOG(INFO)<<snmp_node->snmp.ip.addr<<" ipmac: index="<<arp_map[i].index<<",ip="<<arp_map[i].ip.addr<<",mac="<<arp_map[i].physaddress;
 						}
 				}
-
 
 				route.clear();
 				res = get_route_num(snmp_node,route);     
@@ -1302,22 +1324,6 @@ void* snmp_work_thread(void * arg)
 				}
 
 
-				res = get_interface_traffic(snmp_node,eth_traffic,eth_num);
-				if(res < 0)
-				{
-						LOG(ERROR)<<"get_interface_traffic error snmp_ip="<<snmp_node->snmp.ip.addr;
-				}
-				else
-				{
-						update_snmp_info(snmp_node->snmp.name,INTERFACE_TRAFFIC,&eth_traffic);
-						for(i = 0 ; i < eth_num ; i++)
-						{
-								eth_traffic[i].index = eth[i].index;
-								LOG(INFO)<<snmp_node->snmp.ip.addr.c_str()<<":index="<<eth_traffic[i].index<<",out="<<eth_traffic[i].outoctets<<",in="<<eth_traffic[i].inoctets;
-						}
-				}
-
-
 				res = get_sys_info(snmp_node,sys);
 				if(res < 0)
 				{
@@ -1336,13 +1342,21 @@ void* snmp_work_thread(void * arg)
 				{
 						update_snmp_node_process(snmp_node,snmp_node->process);
 				}
+				*/
 
 				
 				if(0 == snmp_node->snmp.interval)
 				{
 						break;
 				}
-				sleep(snmp_node->snmp.interval);	
+
+				t_end = time(NULL);
+				t_tmp = snmp_node->snmp.interval - (t_end - t_start);
+
+				if(t_tmp > 0)
+				{
+						sleep(t_tmp);
+				}
 		}
 
 		snmp_node->work_flag = false;

@@ -7,15 +7,16 @@
 #define ICMP_BUFF_LEN 128
 
 
-int create_raw_fd();
+int create_raw_fd(bool is_ipv6);
 uint32_t cal_mask(int val);
 unsigned short calc_icmp_chksum(const void *pPacket, int iPktLen);
 int new_icmp_echo(const int iPacketNum, unsigned char *aucSendBuf,const int iDataLen);
 int init_icmp();
 
-void handle_icmp_task(const char* ip);
+int handle_icmp_task(const char* ip);
 
 void *icmp_recv_thread(void*arg);
+void *icmpv6_recv_thread(void*arg);
 void *icmp_check_thread(void*arg);
 void* ipsec_work_thread(void * arg);
 

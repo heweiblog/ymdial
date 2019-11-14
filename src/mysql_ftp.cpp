@@ -124,7 +124,12 @@ int get_db_param_from_url(const char *ip,const char *url,char *host,int *port,ch
 
 void handle_db_task(const char* ip,const char* policy,enum policy_type type)
 {
-		int fd = new_unblock_tcp_socket();
+		bool is_ipv6 = false;
+		if(strstr(ip,"::"))
+		{
+				is_ipv6 = true;
+		}
+		int fd = new_unblock_tcp_socket(is_ipv6);
 		if(fd < 0)
 		{
 				LOG(ERROR)<<"create unblock tcp fd failed,ip="<<ip;
@@ -171,14 +176,9 @@ void handle_db_task(const char* ip,const char* policy,enum policy_type type)
 				return;
 		}
 
-		struct sockaddr_in dest;
-		dest.sin_family = AF_INET;
-		dest.sin_port = htons(sql->port);
-		inet_pton(AF_INET,ip,&dest.sin_addr);
-
-		connect(fd,(struct sockaddr*)&dest,sizeof(sockaddr_in));
-		
+		connect_server(is_ipv6,ip,sql->port,fd);
 }
+
 
 int result_mysql_query(MYSQL *conn,char *cmd)
 {
@@ -259,7 +259,12 @@ int do_oracle_task(ev_t* ev)
 
 void handle_ftp_task(const char*ip,const int port,const char*policy,enum policy_type type)
 {
-		int fd = new_unblock_tcp_socket();
+		bool is_ipv6 = false;
+		if(strstr(ip,"::"))
+		{
+				is_ipv6 = true;
+		}
+		int fd = new_unblock_tcp_socket(is_ipv6);
 		if(fd < 0)
 		{
 				LOG(ERROR)<<"create unblock tcp fd failed,ip="<<ip;
@@ -298,12 +303,7 @@ void handle_ftp_task(const char*ip,const int port,const char*policy,enum policy_
 				return;
 		}
 
-		struct sockaddr_in dest;
-		dest.sin_family = AF_INET;
-		dest.sin_port = htons(sql->port);
-		inet_pton(AF_INET,ip,&dest.sin_addr);
-
-		connect(fd,(struct sockaddr*)&dest,sizeof(sockaddr_in));
+		connect_server(is_ipv6,ip,sql->port,fd);
 }
 
 

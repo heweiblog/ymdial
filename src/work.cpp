@@ -18,6 +18,7 @@ pthread_t g_epoll_https_tid;
 pthread_t g_result_tid;
 pthread_t g_server_tid;
 pthread_t g_icmp_recv_tid;
+pthread_t g_icmpv6_recv_tid;
 pthread_t g_icmp_check_tid;
 pthread_t g_common_tid;
 pthread_t g_udp_tid;
@@ -361,8 +362,8 @@ void *update_dial_result_thread(void*arg)
 																		}
 																		dc_result.delay = 0;
 																		dc_results.push_back(dc_result);
-																		LOG(INFO)<<"dc_result:dc_id="<<dc_result.id<<",ip="<<iter->second.ip.addr<<",policy="<<*policy_iter<<",status="<<dc_result.status;
 																}
+																LOG(INFO)<<"dc_result:dc_id="<<dc_result.id<<",ip="<<iter->second.ip.addr<<",policy="<<*policy_iter<<",status="<<dc_result.status;
 														}
 												}
 												pthread_mutex_unlock(&ip_map[iter->second.ip.addr].mutex);
@@ -424,6 +425,11 @@ void init_thread()
 		if(0 != pthread_create(&g_icmp_recv_tid,NULL,icmp_recv_thread,NULL))
 		{
 				LOG(WARNING)<<"create icmp recv dial thread failed";
+				exit_process();
+		}
+		if(0 != pthread_create(&g_icmpv6_recv_tid,NULL,icmpv6_recv_thread,NULL))
+		{
+				LOG(WARNING)<<"create icmpv6 recv dial thread failed";
 				exit_process();
 		}
 		if(0 != pthread_create(&g_icmp_check_tid,NULL,icmp_check_thread,NULL))

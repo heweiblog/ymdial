@@ -872,7 +872,7 @@ RetCode::type DialHandler::addSnmpGroupInfo(const SnmpGroupInfo& snmp)
 				LOG(ERROR)<<"create a snmp task thread failed!! IP="<<iter->second.snmp.ip.addr;
 				return RetCode::FAIL;
 		}
-		LOG(INFO)<<"ADD_CONF:add a snmp node success!!,IP="<<iter->second.snmp.ip.addr<<",TID="<<iter->second.tid<<",ID="<<snmp.name;
+		LOG(INFO)<<"ADD_CONF:add snmp node success!ip="<<iter->second.snmp.ip.addr<<"interval="<<iter->second.snmp.interval<<",id="<<snmp.name;
 
 		return RetCode::OK;
 }

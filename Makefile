@@ -1,7 +1,8 @@
 TGT=ymdial
 SRCS=$(wildcard ./src/*.cpp)
 
-LIBRAYS= -lrt -lpthread -ldl -lz -lresolv -lcrypto -lssl -lnetsnmp ./lib/*.a
+#LIBRAYS= -lrt -lpthread -ldl -lz -lresolv -lcrypto -lssl -lnetsnmp ./lib/*.a
+LIBRAYS= -lrt -lpthread -ldl -lz -lresolv -lcrypto -lssl  ./lib/*.a
 #LIBRAYS= -lrt -lpthread -ldl -lz -lresolv -lcrypto -lssl -lnetsnmp ./lib/*.a -L/usr/lib/oracle/12.1/client64/lib/ -lclntsh -locci -lmql1 -lipc1 -lnnz12 -lons -lclntshcore
 
 COMPILE_FLAGS= -g -W -O2 -DHAVE_NETINET_IN_H -I./include -I./clib/include -I/usr/include/openssl

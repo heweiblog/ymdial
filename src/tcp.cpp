@@ -9,10 +9,19 @@
 #include "epoll.h"
 #include "smtp.h"
 
-int new_unblock_tcp_socket()
+int new_unblock_tcp_socket(bool is_ipv6)
 {
-		int fd = socket(AF_INET, SOCK_STREAM, 0);
-		if(fd < 0)
+		int fd = 0;
+
+		if(is_ipv6)
+		{
+				fd = socket(AF_INET6, SOCK_STREAM, 0);
+		}
+		else
+		{
+				fd = socket(AF_INET, SOCK_STREAM, 0);
+		}
+		if(fd <= 0)
 		{
 				return -1;
 		}
@@ -78,9 +87,37 @@ int tcp_recv_msg(ev_t*ev,char*recv_buf)
 }
 		
 
+void connect_server(bool is_ipv6,const char*ip,const int port,int fd)
+{
+		if(is_ipv6)
+		{
+				struct sockaddr_in6 dest;
+				dest.sin6_family = AF_INET6;
+				dest.sin6_port = htons(port);
+				inet_pton(AF_INET6,ip,&dest.sin6_addr);
+
+				connect(fd,(struct sockaddr*)&dest,sizeof(sockaddr_in6));
+		}
+		else
+		{
+				struct sockaddr_in dest;
+				dest.sin_family = AF_INET;
+				dest.sin_port = htons(port);
+				inet_pton(AF_INET,ip,&dest.sin_addr);
+
+				connect(fd,(struct sockaddr*)&dest,sizeof(sockaddr_in));
+		}
+}
+
+
 void handle_tcp_port_task(const char*ip,const int port,const char*policy,enum policy_type type)
 {
-		int fd = new_unblock_tcp_socket();
+		bool is_ipv6 = false;
+		if(strstr(ip,"::"))
+		{
+				is_ipv6 = true;
+		}
+		int fd = new_unblock_tcp_socket(is_ipv6);
 		if(fd < 0)
 		{
 				LOG(WARNING)<<"create unblock tcp fd failed,ip="<<ip;
@@ -113,12 +150,7 @@ void handle_tcp_port_task(const char*ip,const int port,const char*policy,enum po
 				return;
 		}
 
-		struct sockaddr_in dest;
-		dest.sin_family = AF_INET;
-		dest.sin_port = htons(port);
-		inet_pton(AF_INET,ip,&dest.sin_addr);
-
-		connect(fd,(struct sockaddr*)&dest,sizeof(sockaddr_in));
+		connect_server(is_ipv6,ip,port,fd);
 }
 
 
